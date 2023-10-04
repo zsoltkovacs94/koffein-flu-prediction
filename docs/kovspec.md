@@ -55,13 +55,14 @@ A nem-funkcionális követelmények teljesítésével biztosítjuk a megfelelő 
 | K18 | A tanuló adatbázis adatai | A tanuló adatbázis adatoszlopai a következők legyenek: WHO régió, országnév, dátum, ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek, SARI járóbetegek |
 | K19 | A predikció történjen gépi tanulással | A predikcióért felelős program használjon gépi tanulást új adatok előállítására |
 | K20 | A prediktált adatok előre elkészítése | A prediktált adatokat készítse el 10 évre előre a program |
-| K21 | Figyelmeztetés kevés adat esetén | Országoknál vagy régióknál, ahol kevés a tanuló adat, ott figyelmeztessen a weboldal a növekedett hibavalószínűségre |
-| K22 | A weboldal felhasználóbarátsága | A weboldalnak felhasználó barátnak kell lennie |
-| K23 | A weboldal reszponzivitása | A weboldalnak reszponzívnak kell lennie, hogy bármilyen képernyőn felhasználóbarát módon jelenjen meg |
+| K21 | Figyelmeztetni a felhasználót a prediktált adatok pontatlanságára | Figyelmeztetni kell a felhasználót, hogy a generált adatok gépi tanulás útján lettek generálva, ezért nagy valószínűséggel pontatlanok és nem vállalunk érte felelősséget |
+| K22 | Figyelmeztetés kevés adat esetén | Országoknál vagy régióknál, ahol kevés a tanuló adat, ott figyelmeztessen a weboldal a növekedett hibavalószínűségre |
+| K23 | A weboldal felhasználóbarátsága | A weboldalnak felhasználó barátnak kell lennie |
+| K24 | A weboldal reszponzivitása | A weboldalnak reszponzívnak kell lennie, hogy bármilyen képernyőn felhasználóbarát módon jelenjen meg |
 
 #### Nem-funkcionális követelmények csoportosítása
 
 - K15-K18 - Leírja milyen adatokat tartalmazzon a tanuló adatbázis
 - K19-K20 - Leírja hogy történjen a predikció
 - K21 - Kimondja, hogy olyan országoknál, ahol kevés a tanuló adat, ott figyelmeztessen a potenciális pontatlanságra
-- K22-K23 - Leírja a felhasználói felület követelményeit
+- K22-K24 - Leírja a felhasználói felület követelményeit
