@@ -36,7 +36,7 @@ A felhasználónak képesnek kell lennie különböző lekérdezéseket végzeni
 
 A weblap egy közvetítőként működik a felhasználó és az adatbázisok között.
 
-Ábra beszúrása a felhasználó a weblap és az adatbázisok viszonyáról
+![Felhasználó-weblap-adatbázis viszony](img/fh-wl-ab.png)
 
 #### A tanuló adatbázis követelményei
 
@@ -67,7 +67,7 @@ A nem-funkcionális követelmények teljesítésével biztosítjuk a megfelelő 
 
 A tanuló adatbázis csakis a predikció szempontjából lényeges adatokat tartalmaz.
 
-Ábra az adatbázis felépítéséről
+![Adatbázis felépítése](img/adatbazis.png)
 
 ##### Adatoszlopok
 
