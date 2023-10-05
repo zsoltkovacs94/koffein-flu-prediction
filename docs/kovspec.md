@@ -33,7 +33,7 @@ A megvalósítandó funkciók egy weboldal, ami képes adatbázisból lekérdezn
 | K11 | ILI gyanús esetek prediktálása | A programnak prediktálnia kell az ILI gyanús megbetegedések számát |
 | K12 | ILI járóbetegek prediktálása | A programnak prediktálnia kell az ILI járóbetegek számát |
 | K13 | SARI gyanús esetek prediktálása | A programnak prediktálnia kell a SARI gyanús megbetegedések számát |
-| K14 | SARI járóbetegek prediktálása | A programnak prediktálnia kell a SARI járóbetegek számát |
+| K14 | SARI fekvőbetegek prediktálása | A programnak prediktálnia kell a SARI fekvőbetegek számát |
 
 #### Funkcionális követelmények csoportosítása
 
@@ -52,7 +52,7 @@ A nem-funkcionális követelmények teljesítésével biztosítjuk a megfelelő 
 | K15 | A tanuló adatbázis tartalma | A tanuló adatbázis csakis a WHO hivatalos adatait tartalmazza |
 | K16 | A tanuló adatbázis ne tartalmazzon felesleges adatoszlopokat | A tanuló adatbázis a WHO hivatalos adatainak egy szűrt változatát tartlamazza a predikcióhoz szükségtelen adatoszlopokat elhagyva |
 | K17 | A tanuló adatbázis csakis egész népességre vonatkozó adatokat tartalmazzon | A tanuló adatbázis a WHO hivatalos adatainak egy szűrt változatát tartlamazza a korosztályokra lebontott adatsorok elhagyásával |
-| K18 | A tanuló adatbázis adatai | A tanuló adatbázis adatoszlopai a következők legyenek: WHO régió, országnév, dátum, ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek, SARI járóbetegek |
+| K18 | A tanuló adatbázis adatai | A tanuló adatbázis adatoszlopai a következők legyenek: WHO régió, országnév, dátum, ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek, SARI fekvőbetegek |
 | K19 | A predikció történjen gépi tanulással | A predikcióért felelős program használjon gépi tanulást új adatok előállítására |
 | K20 | A prediktált adatok elkészítése | A prediktált adatokat egy előre betanított modell alapján lekérésre generálja a rendszer |
 | K21 | Figyelmeztetni a felhasználót a prediktált adatok pontatlanságára | Figyelmeztetni kell a felhasználót, hogy a generált adatok gépi tanulás útján lettek generálva, ezért nagy valószínűséggel pontatlanok és nem vállalunk érte felelősséget |

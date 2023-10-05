@@ -50,7 +50,7 @@ A prediktáló program egy python program, ami a tanuló adatbázis megfelelő r
 
 A prediktáló program egy tanuló adatbázis lekérdezéssel kap tanuló adatot, majd a predikció után a generált adatokat feltölti a prediktált adatok adatbázisába.
 
-A prediktáló program a dátum, az ILI gyanús esetek száma, az ILI járóbetegek száma, a SARI gyanús esetek száma és a SARI járóbetegek száma alapján tanul és megadott jövőbeli időpontokra ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek és SARI járóbetegek számát generál.
+A prediktáló program a dátum, az ILI gyanús esetek száma, az ILI járóbetegek száma, a SARI gyanús esetek száma és a SARI fekvőbetegek száma alapján tanul és megadott jövőbeli időpontokra ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek és SARI fekvőbetegek számát generál.
 
 ### Nem-funkcionális követelmények
 
@@ -71,13 +71,14 @@ A tanuló adatbázis csakis a predikció szempontjából lényeges adatokat tart
 
 ##### Adatoszlopok
 
-- WHO régió - WHO régió neve
-- Országnév - Az adott ország neve
-- Dátum - A mérés időpontja
-- ILI gyanús esetek száma - Influenzagyanús betegek száma
-- ILI járóbetegek száma - Influenzás járóbetegek száma
-- SARI gyanús esetek száma - Súlyos léguti megbetegedésgyanús betegek száma
-- SARI járóbetegek száma - Súlyos léguti megbetegedéses járóbetegek száma
+- WHOREGION - WHO régió neve
+- COUNTRY_AREA_TERRITORY - Az adott ország neve
+- ISO_YEAR - A mérés éve
+- ISO_WEEK - Az év hete, amikor a mérés történt
+- ILI_CASE - Influenzagyanús betegek száma
+- ILI_OUTPATIENTS - Influenzás járóbetegek száma
+- SARI_CASE - Súlyos léguti megbetegedésgyanús betegek száma
+- SARI_INPATIENTS - Súlyos léguti megbetegedéses fekvőbetegek száma
 
 #### Predikció nem-funkcionális követelményei
 
