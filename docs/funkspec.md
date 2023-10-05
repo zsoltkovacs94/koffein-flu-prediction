@@ -12,6 +12,48 @@
 
 ## Használati esetek
 
+### Felhasználói műveletek
+
+A felhasználó a weblapon keresztül képes lesz lekérdezni a tanuló adatbázis adatait és a tanuló adatbázis adatai alapján új adatokat generáltatni és megtekinteni.
+
+#### Tanuló adatbázis lekérdezése
+
+![Tanuló adatbázis lekérdezése](img/tanulo_adat_megjelenites.png)
+
+#### Új adatok generáltatása
+
+![Új adatok generálása](img/generalt_adat_megjelenites.png)
+
+### Oldal műveletei
+
+A weboldal közvetítőként szolgál a felhasználó és az adatbázisok, valamint a betanított modell között.
+
+#### Kapcsolat az adatbázisokkal
+
+Felhasználói interakcióra az oldal lekéri és megjeleníti az adatokat vagy azoknak egy kívánt halmazát.
+
+#### Új adatok generáltatása és megjelenítése
+
+Felhasználói interakcióra a betanított modell alapján és az adatok egy részhalmaza alapján a program új adatokat generál.
+
+![Új adatok generálása és megjelenítése](img/generalt_adat_megjelenites.png)
+
+Az így kapott értékeket megjeleníte ezek után az oldal.
+
+### Gépi tanuló program műveletei
+
+#### Új adat generálása
+
+A program a kapott adatok alapján további adatokat generál.
+
+![Új adat generálás](img/uj_adat_generalas.png)
+
+### Modell tanulása
+
+#### Tanulás menete
+
+A modell betanítása úgy zajlik, hogy az egész tanuló adatbázison tanul, majd a tanuló adatbázis felét inputul kapva meg kell határoznia a tanuló adatbázis másik feléhez az ILI_CASE, ILI_OUTPATIENTS, SARI_CASE és SARI_INPATIENTS adatoszlopok. Ha ennek a hibamértéke 10% alatti, akkor sikeres a tanítás.
+
 ## Követelménylista
 
 A követelménylista tartalmaz minden megvalósítandó funkciót és működésbeni követelményt.
