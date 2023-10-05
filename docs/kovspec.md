@@ -54,7 +54,7 @@ A nem-funkcionális követelmények teljesítésével biztosítjuk a megfelelő 
 | K17 | A tanuló adatbázis csakis egész népességre vonatkozó adatokat tartalmazzon | A tanuló adatbázis a WHO hivatalos adatainak egy szűrt változatát tartlamazza a korosztályokra lebontott adatsorok elhagyásával |
 | K18 | A tanuló adatbázis adatai | A tanuló adatbázis adatoszlopai a következők legyenek: WHO régió, országnév, dátum, ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek, SARI járóbetegek |
 | K19 | A predikció történjen gépi tanulással | A predikcióért felelős program használjon gépi tanulást új adatok előállítására |
-| K20 | A prediktált adatok előre elkészítése | A prediktált adatokat készítse el 10 évre előre a program |
+| K20 | A prediktált adatok elkészítése | A prediktált adatokat egy előre betanított modell alapján lekérésre generálja a rendszer |
 | K21 | Figyelmeztetni a felhasználót a prediktált adatok pontatlanságára | Figyelmeztetni kell a felhasználót, hogy a generált adatok gépi tanulás útján lettek generálva, ezért nagy valószínűséggel pontatlanok és nem vállalunk érte felelősséget |
 | K22 | Figyelmeztetés kevés adat esetén | Országoknál vagy régióknál, ahol kevés a tanuló adat, ott figyelmeztessen a weboldal a növekedett hibavalószínűségre |
 | K23 | A weboldal felhasználóbarátsága | A weboldalnak felhasználó barátnak kell lennie |

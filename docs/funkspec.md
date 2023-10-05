@@ -81,7 +81,7 @@ A tanuló adatbázis csakis a predikció szempontjából lényeges adatokat tart
 
 #### Predikció nem-funkcionális követelményei
 
-A predikciónak gépi tanulás útján kell történnie, az adatokat 10 évre előre el kell készítenie és feltölteni az adatbázisba.
+A predikciónak gépi tanulás útján kell történnie, az adatokat egy előre betanított modell alapján kell készítenie és feltölteni az adatbázisba.
 
 #### Weboldal nem-funkcionális követelményei
 
