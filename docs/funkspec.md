@@ -4,6 +4,23 @@
 
 ## A rendszer céljai és nem céljai
 
+A rendszer céljai:
+
+- Egy olyan rendszer létrehozása, amelyet könnyű minden felhasználónak használnia, megértenie
+- A felhasználó értesítése a világ körüli influenzás és COVID megbetegedések adatairól
+- A felhasználó értesítése csak az ő általa érdekelt megbetegedések adatairól
+- A rendszer képes megjósolni jövőbeli megbetegedések számát egy betanított modell segítségével
+- A rendszer folyamatosan bővül új aktuális adatokkal
+  - A betanított modell ezzel együtt fejlődik
+
+A rendszer nem céljai:
+
+- Egy olyan rendszer létrehozása, amelyet csak az informatikához vagy biológiához értő felhasználók érthetnek meg
+- Bonyolult használat lekérdezések esetén
+- A rendszer ténylegesen jósolja meg a jövőt, csak pontos adatokat adjon a predikciókban
+- A felhasználó képes mindkét adatbázis adataiba belenyúlni, megváltoztatni azokat
+- A felhasználó hozzáfér a betanított modellhez
+
 ## Vágyálomrendszer leírása
 
 Ahogyan azt a Követelmény specifikációban is említettük, szoftverünk célja az, hogy webes felületet biztosítson arra, hogy a felhasználó egy helyen értesülhessen a világ eddigi és előre látható influenzás és COVID megbetegedések számáról.
