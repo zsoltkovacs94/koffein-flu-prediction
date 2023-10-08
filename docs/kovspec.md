@@ -4,6 +4,16 @@
 
 ## Vágyálomrendszer leírása
 
+Vágyunk egy olyan szoftver fejlesztése, amely képes egy előre összegyűjtött adatbázis adataiból tanulva megjósolni bármely elkövetkező időszak influenzás és COVID megbetegedések számát.
+
+Tervünk az, hogy a felhasználó egy böngészőt használva képes legyen megnézni bármely ország és WHO régió adatait, és ezen kívül olyan adatokat is meg tudjon nézni, amelyek ezen adatok változását jósolják meg.
+
+A felület könnyen üzemeltethető legyen, gyorsan reagáljon a felhasználó által kért lekérdezésekre. A tanuló adatbázis, a prediktált adatbázis és a weboldal között legyen meg a gyors, sikeres kommunikáció.
+
+Szeretnénk, ha a weboldal esztétikailag vonzó lenne, és egyszerű használni bármilyen korú és képzettségű felhasználó által.
+
+Célunk az, hogy a felhasználó képes legyen egy helyen megtalálni az eddig feljegyzett influenzás és COVID betegek számát és ezen kívül ellenőrizni, hogy ezek az adatok a jövőben előreláthatólag hogyan fognak változni.
+
 ## Jelenlegi üzleti folyamatok leírása
 
 ## Igényelt üzleti folyamatok leírása
