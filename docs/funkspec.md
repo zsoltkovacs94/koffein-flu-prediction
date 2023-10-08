@@ -6,6 +6,27 @@
 
 ## Vágyálomrendszer leírása
 
+Ahogyan azt a Követelmény specifikációban is említettük, szoftverünk célja az, hogy webes felületet biztosítson arra, hogy a felhasználó egy helyen értesülhessen a világ eddigi és előre látható influenzás és COVID megbetegedések számáról.
+
+A felület tartalmazná a következő fontos adatbázisokat:
+
+- A WHO által feljegyzett adatokat tartalmazó adatbázis, amelyből a mi általunk készített modell fog tanulni
+  - Ez az adatbázis képviseli a világ már eddig mért betegeinek számát.
+- Az előző adatbázis mintájára betanított modellünk egy új adatbázisba fogja menteni az új adatokat
+  - Ez az adatbázis képviseli a világ előre látható betegeinek számát.
+
+Álmunk az, hogy a szoftver több fontos funkcióval is rendelkezzen:
+
+- A szoftver bármilyen webes böngészőn tudjon megjelenni, bármilyen beállítás mellett
+- A weboldal esztétikailag vonzó legyen, a felhasználók számára előnyös kinézettel
+- A weboldalt bármilyen felhasználó egyszerűen tudja használni
+- A felhasználó az adatbázis bármelyik adatára keresve tudjon lekérdezéseket végrehajtani
+- A felhasználó bármennyi (akár az összes) adatot lekérdezhet az adatbázisból
+  - Az oldal már betöltéskor az egész adatbázis tartalmát meg fogja jeleníteni, de ha szükséges, azaz ha a felhasználó már egy egyszerűbb lekérdezés után szeretné megjeleníteni az összes adatot, akkor arra is lesz lehetősége
+- A felhasználó bármennyi adatot generálhat a betanított modellünk segítségével
+  - Pl. ha a felhasználó az összes országra vontakozó COVID megbetegedések számát szeretné látni egy lekérdezésben, akkor ez a lehetőség biztosítva lesz számára
+- 
+
 ## Jelenlegi üzleti folyamatok leírása
 
 ## Igényelt üzleti folyamatok leírása
