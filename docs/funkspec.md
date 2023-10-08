@@ -25,7 +25,12 @@ A felület tartalmazná a következő fontos adatbázisokat:
   - Az oldal már betöltéskor az egész adatbázis tartalmát meg fogja jeleníteni, de ha szükséges, azaz ha a felhasználó már egy egyszerűbb lekérdezés után szeretné megjeleníteni az összes adatot, akkor arra is lesz lehetősége
 - A felhasználó bármennyi adatot generálhat a betanított modellünk segítségével
   - Pl. ha a felhasználó az összes országra vontakozó COVID megbetegedések számát szeretné látni egy lekérdezésben, akkor ez a lehetőség biztosítva lesz számára
-- 
+- A felhasználó könnyen hozzájuthasson és kezelhesse a két adatbázis adatait
+  - Függetlenül a felhasználó korától és végzettségétől, vagy az informatikához való hozzáértésétől, a weboldalnak érthetőnek és könnyen kezelhetőnek kell lennie
+- A szoftver mindig bővüljön új, a WHO által hozzáadott hivatalos adatokkal
+  - Ahogy a tanuló adatbázis bővül, a mi általunk betanított modell is legyen folyamatosan karbantartva, hogy a második adatbázis is frissüljön az új adatok által adott predikciókkal
+- Azért, hogy a betanított modellünk mindig naprakész legyen, folyamatosan legyen ellenőrizve, karbantartás alatt
+- ...
 
 ## Jelenlegi üzleti folyamatok leírása
 
