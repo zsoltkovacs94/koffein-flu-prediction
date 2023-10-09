@@ -18,6 +18,8 @@ Célunk az, hogy a felhasználó képes legyen egy helyen megtalálni az eddig f
 
 ## Jelenlegi üzleti folyamatok leírása
 
+A mai világban ha az emberek információkat szeretnének bizonyos témákban , akkor az internet segítségével teszik ezt meg. A covid betegség óta jobban nyomon követik a betegségek számát és érdeklik , hogy milyen gyorsaságban növekszik és mennyi lesz a jövőben. Az alkalmazás segítségével ,tudnak informálódni, hogy melyik országban mennyi volt a covid vagy az influenza járvány által lebetegedett emberek száma és a későbbiekben mennyi lehet ez a szám.
+
 ## Igényelt üzleti folyamatok leírása
 
 ## Követelménylista
