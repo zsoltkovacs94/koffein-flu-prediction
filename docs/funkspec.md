@@ -51,6 +51,8 @@ A felület tartalmazná a következő fontos adatbázisokat:
 
 ## Jelenlegi üzleti folyamatok leírása
 
+A mai világban az orvostudomány nem használja ki a már meglévő technológiát arra, hogy a betegségek terjedését könnyebben lehessen számon tartani és követni. Jelenleg a betegek számának nyilvántartása egy központi adatbázisban történik, melynek felhasználásával előre tekinthetnénk, hogy milyen gyorsaságban nőnek a számunkra érdekes betegség. 
+
 ## Igényelt üzleti folyamatok leírása
 
 ## Használati esetek
