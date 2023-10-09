@@ -55,6 +55,10 @@ A mai világban az orvostudomány nem használja ki a már meglévő technológi
 
 ## Igényelt üzleti folyamatok leírása
 
+Azért , hogy könnyebbé tegyük a betegségekre érdeklő emberek dolgát, létrehozunk egy weboldalt , amely követi az aktuális betegségek számát és megmutatja a jövőre vonatkozható számokat.
+
+A weboldalra látogatóknak lehetőségük van az elmúlt évek covid és influenza járvány adatait lekérni. Az adatokat lehetőségük van országokra ,vagy régiókra szűrni. A jelenlegi adatok mellett megtalálható az is , hogy a jövőben mennyi lesz ezeknek a betegségeknek a száma. Ezeket az adatokat egy folyamatosan tanuló adatbázis biztosítja amely a meglévő adatok felhasználásával számítja ki.
+
 ## Használati esetek
 
 ### Felhasználói műveletek
