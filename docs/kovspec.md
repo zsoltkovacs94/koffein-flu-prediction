@@ -2,6 +2,8 @@
 
 ## Jelenlegi helyzet leírása
 
+A web applikáció célja a covid és influenzában lebetegedett emberek számának lekérdezése Az alkalmazás Webes felülettel rendelkezik, amely minden eszközön és böngészőn kiválóan működik.A felületen lehetőségük van a felhasználóknak országokra és régiókra szűrni. A korábbi adatokat egy meglévő adatbázisból kérdezzük le és használjuk fel, ezáltal adatok mindig napra készen. A becsült jövőbeli adatokat ebből  az adatbázis adataiból számítjuk ki.
+
 ## Vágyálomrendszer leírása
 
 Vágyunk egy olyan szoftver fejlesztése, amely képes egy előre összegyűjtött adatbázis adataiból tanulva megjósolni bármely elkövetkező időszak influenzás és COVID megbetegedések számát.
