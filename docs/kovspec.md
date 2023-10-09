@@ -22,6 +22,18 @@ A mai világban ha az emberek információkat szeretnének bizonyos témákban ,
 
 ## Igényelt üzleti folyamatok leírása
 
+Célunk egy egy olyan rendszer fejlesztése, mely lekérdezi a covid és influenzában lebetegedett emberek számát.
+
+Egy magas szintű, adatvezérelt platformot tervezünk, ami segít az embereknek, 
+az egészségügyi szakembereknek és a hatóságoknak abban, hogy jobban megértsék és időben reagáljanak a járványokra.
+
+Egy korábbi projekt eredményeit figyelembe véve igyekszünk javítani a pontosságon, illetve több adatot jósolni. 
+
+Tervünk egy olyan piacképes szoftver fejlesztése, mely az elmúlt napok adatai alapján képes a következő nap betegeinek
+számát becsülni. 
+
+Megfelelően működő rendszer komoly hatással lehet a mindennapjainkra.
+
 ## Követelménylista
 
 A követelménylista tartalmaz minden megvalósítandó funkciót és működésbeni követelményt.
