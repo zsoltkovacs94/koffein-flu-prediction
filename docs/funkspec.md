@@ -2,6 +2,9 @@
 
 ## Jelenlegi helyzet leírása
 
+A web applikáció célja a covid és influenzában lebetegedett emberek számának lekérdezése Az alkalmazás Webes felülettel rendelkezik, amely minden eszközön és böngészőn kiválóan működik.A felületen lehetőségük van a felhasználóknak országokra és régiókra szűrni. A korábbi adatokat egy meglévő adatbázisból kérdezzük le és használjuk fel, ezáltal adatok mindig napra készen. A becsült jövőbeli adatokat ebből  az adatbázis adataiból számítjuk ki.
+
+
 ## A rendszer céljai és nem céljai
 
 A rendszer céljai:
