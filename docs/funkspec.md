@@ -31,6 +31,7 @@ Ahogyan azt a Követelmény specifikációban is említettük, szoftverünk cél
 A felület tartalmazná a következő fontos adatbázisokat:
 
 - A WHO által feljegyzett adatokat tartalmazó adatbázis, amelyből a mi általunk készített modell fog tanulni
+  - Ez az adatbázis a WHO által kiadott hivatalos adatok egy szűrt részét tartalmazza csak, amelyek szoftverünkre vonatkoznak.
   - Ez az adatbázis képviseli a világ már eddig mért betegeinek számát.
 - Az előző adatbázis mintájára betanított modellünk egy új adatbázisba fogja menteni az új adatokat
   - Ez az adatbázis képviseli a világ előre látható betegeinek számát.
@@ -47,10 +48,10 @@ A felület tartalmazná a következő fontos adatbázisokat:
   - Pl. ha a felhasználó az összes országra vontakozó COVID megbetegedések számát szeretné látni egy lekérdezésben, akkor ez a lehetőség biztosítva lesz számára
 - A felhasználó könnyen hozzájuthasson és kezelhesse a két adatbázis adatait
   - Függetlenül a felhasználó korától és végzettségétől, vagy az informatikához való hozzáértésétől, a weboldalnak érthetőnek és könnyen kezelhetőnek kell lennie
+  - Elképzelésünk az, hogy a felhasználónak ne kelljen az adatbázis lekérdezésekkel bajlódnia, ezért egyszerű kereséssel vagy legördülő listából választhatja majd ki azokat az adatokat, amelyek számára fontosak
 - A szoftver mindig bővüljön új, a WHO által hozzáadott hivatalos adatokkal
   - Ahogy a tanuló adatbázis bővül, a mi általunk betanított modell is legyen folyamatosan karbantartva, hogy a második adatbázis is frissüljön az új adatok által adott predikciókkal
 - Azért, hogy a betanított modellünk mindig naprakész legyen, folyamatosan legyen ellenőrizve, karbantartás alatt
-- ...
 
 ## Jelenlegi üzleti folyamatok leírása
 
