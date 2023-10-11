@@ -150,6 +150,24 @@ Az előző három pontot összegezve úgy döntöttünk, hogy ezek az adatoszlop
 
 Ahogy azt már a fentebb leírt Funkcionális követelmények részben írtuk, az első három adatoszlopból lehet majd a felhasználónak lekérdezni, míg az utolsó négy oszlop tartalmazza az influenzás és COVID betegek számát.
 
+> **A predikció történjen gépi tanulással**
+
+**Röviden a követelménylistából**: A predikcióért felelős program használjon gépi tanulást az új adatok előállítására.
+
+Annak érdekében, hogy a felhasználónak legyen egy elképzelése arról, hogyan fognak alakulni a tanuló adatbázisban található adatok, szeretnénk ha az általunk fejlesztett program meg tudná ezeket az adatokat jósolni.
+
+Ezt úgy tudjuk a legegyszerűbben elérni, hogy a modellünk gépi tanulást használ.
+
+> **A predikált adatok elkészítése**
+
+**Röviden a követelménylistából**: A predikált adatokat egy előre betanított modell alapján lekérésre generálja a rendszer.
+
+Míg a tanuló adatbázis már a weboldal betöltésével együtt létezik a felületen, addig a modell által generált adatok csak akkor fognak ténylegesen létezni, amint a felhasználó lekérdezte őket.
+
+Ez azért is jelentős, mert ahogyan az idő múlik, annál frissebb adatok lesznek a tanuló adatbázisban, és úgy fog fejlődni a betanított modell is, ezért nem elégedhetünk meg azzal, hogy mi egyszer legeneráljuk a predikált adatokat, és azzal térünk vissza a felhasználónak.
+
+A modell nem fog miden egyes lekérdezéssel újra betanítódni, viszont az adatok mindig változnak - ezért fontos így elkészítenünk az adatokat.
+
 
 
 ## Funkcionális terv
