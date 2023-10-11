@@ -22,6 +22,8 @@ A rendszer az adatokat a projecten belül saját adatbázisban tárolja aminek a
 
 ## Architekturális terv
 
+## Adatbázis terv
+
 ## Tesztterv
 
 ## Telepítési terv
