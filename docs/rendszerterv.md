@@ -116,6 +116,40 @@ A tanuló adatbázis egyik adatoszlopa a SARI gyanús (súlyos léguti megbetege
 
 A tanuló adatbázis egyik adatoszlopa a SARI (súlyos léguti megbetegedés) fekvőbetegek számát tárolja, ezért a betanított modellünknek sikeresen meg kell tudni jósolnia ezen adatok lehetséges jövőbeli fejlődését.
 
+### Nem-funkcionális követelmények
+
+> **A tanuló adatbázis tartalma**
+
+**Röviden a követelménylistából**: A tanuló adatbázis csakis a WHO hivatalos adatait tartalmazza.
+
+Ez a követelmény több okból is fontos: először is, hogy a felhasználó csak olyan adatokhoz jusson hozzá, amelyek hitelesek. Számukra ugyanis a weboldal csak a tájékozódás helye, ezért biztosítanunk kell, hogy hiteles adatokat adunk át nekik.
+
+Továbbá a WHO hivatalos adatai azért is fontosak, mert nekünk ezek az adatok adnak alapot a modellünk betanítására. Ha nem hivatalos, hiteles adatokkal dolgoznánk, akkor semmi értelme nem lenne a betanításnak, és magának a programunknak sem.
+
+> **A tanuló adatbázis ne tartalmazzon felesleges oszlopokat**
+
+**Röviden a követelménylistából**: A tanuló adatbázis a WHO hivatalos adatainak egy szűrt változatát tartalmazza a predikcióhoz szükségtelen adatoszlopokat elhagyva.
+
+A WHO által kiadott hivatalos adatok között több olyan adatoszlop is található, amelyek nem sokat mondanak olyan személyeknek, akik nem foglalkoznak egyes tárgyakkal, mint a földrajz, biológia vagy informatika.
+
+Ezért, és hogy a betanított modellünknek ne kelljen extra munkát végeznie, úgy döntöttünk, hogy az eredeti adatokat leszűrjük egy olyan mennyiségre, amelyek könnyen értelmezhetőek bármilyen felhasználó által.
+
+> **A tanuló adatbázis csakis egész népességre vonatkozó adatokat tartalmazzon**
+
+**Röviden a követelménylistából**: A tanuló adatbázis a WHO hivatalos adatainak egy szűrt változatát tartalmazza a korosztályokra lebontott adatsorok elhagyásával.
+
+A WHO által kiadott hivatalos adatok több korosztályra vannak bontva, amely csak nehezíti az adatok értelmezését és emellett több helyet foglal el az eszközön.
+
+Úgy döntöttünk, hogy az összes korosztály meghagyása helyett csak az '*All*' korosztályú adatsorokat hagyjuk meg, amellyel végső soron adatvesztés nem keletkezik, mert így is az összes feljegyzett hiteles adat megmaradt.
+
+> **A tanuló adatbázis adatai**
+
+**Röviden a követelménylistából**: A tanuló adatbázis adatoszlopai a következők legyenek: WHO régió, országnév, dátum, ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek, SARI fekvőbetegek.
+
+Az előző három pontot összegezve úgy döntöttünk, hogy ezek az adatoszlopok tartalmazzák azokat az adatokat, amelyekre az általános felhasználók leginkább kíváncsiak.
+
+Ahogy azt már a fentebb leírt Funkcionális követelmények részben írtuk, az első három adatoszlopból lehet majd a felhasználónak lekérdezni, míg az utolsó négy oszlop tartalmazza az influenzás és COVID betegek számát.
+
 
 
 ## Funkcionális terv
