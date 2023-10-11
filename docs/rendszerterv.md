@@ -200,7 +200,11 @@ Mivel a világon nem minden személy egy fajta eszközt használ, ezért fontos 
 
 Bár a programot nem fejlesztjük mobil eszközökre, reméljük, hogy bármilyen más gépi eszköz képernyőjén meg tudjon jelenni az oldal úgy, hogy tartsa formáját és használhatóságát.
 
+### Törvényi előírások, szabványok
 
+Programunknak szükséges megfelelnie az Európai Unió Általános adatvédelmi rendeletének (GDPR).
+
+Ezen kívül szükséges betartanunk a WHO adatszabályzatát is, amely megtalálható a következő linken: [WHO Data Policy](https://www.who.int/about/policies/publishing/data-policy).
 
 ## Funkcionális terv
 
