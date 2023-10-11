@@ -68,6 +68,22 @@ Ezért gondoljuk azt fontosnak, hogy a felhasználónak legyen lehetősége az a
 
 Az előbbi három pont ötvözeteként, fontos úgy kialakítanunk a rendszert, hogy a felhasználó egyszerre szűrhessen ezekre a fontosabb adatokra, hogy annál pontosabb adatokhoz juthasson hozzá.
 
+> **A tanuló adatok adatbázisban történő tárolása**
+
+**Röviden a követelménylistából**: A tanuló adatokat egy SQL adatbázisban kell tárolni.
+
+Annak érdekében, hogy a WHO által kiadott hivatalos adatok szűrt változatát tömören és egy, könnyen elérhető helyen tároljuk, ezért létre kell hoznunk egy adatbázist.
+
+Az adatok így könnyebben elérhetőek és használhatóak, és kevesebb helyet foglalnak a rendszerre nézve, mint ha más tárolási módot keresnénk.
+
+> **A predikált adatok adatbázisban történő tárolása**
+
+**Röviden a követelménylistából**: A predikált adatokat egy SQL adatbázisban kell tárolni.
+
+Az alkalmazásunk legegyedibb tulajdonsága az lesz, hogy betanított modell segítségével meg tudjuk jósolni az influenzás és COVID betegek számának változását a jövőre nézve.
+
+A betanított modell által generált adatokat is szükséges tárolnunk valahol, így a tanító adatbázis példájára ezeket az új adatokat is egy adatbázisban fogjuk tárolni.
+
 
 
 ## Funkcionális terv
