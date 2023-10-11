@@ -104,6 +104,20 @@ A tanuló adatbázis egyik adatoszlopa az ILI gyanús (influenzagyanús) megbete
 
 A tanuló adatbázis egyik adatoszlopa az ILI (influenzás) járóbetegek számát tárolja, ezért a betanított modellünknek sikeresen meg kell tudni jósolnia ezen adatok lehetséges jövőbeli fejlődését.
 
+> **SARI gyanús esetek prediktálása**
+
+**Röviden a követelménylistából**: A programnak prediktálnia kell a SARI gyanús megbetegedések számát.
+
+A tanuló adatbázis egyik adatoszlopa a SARI gyanús (súlyos léguti megbetegedésgyanús) megbetegedések számát tárolja, ezért a betanított modellünknek sikeresen meg kell tudni jósolnia ezen adatok lehetséges jövőbeli fejlődését.
+
+> **SARI fekvőbetegek prediktálása**
+
+**Röviden a követelménylistából**: A programnak prediktálnia kell a SARI fekvőbetegek számát.
+
+A tanuló adatbázis egyik adatoszlopa a SARI (súlyos léguti megbetegedés) fekvőbetegek számát tárolja, ezért a betanított modellünknek sikeresen meg kell tudni jósolnia ezen adatok lehetséges jövőbeli fejlődését.
+
+
+
 ## Funkcionális terv
 
 ## Fizikai környezet
