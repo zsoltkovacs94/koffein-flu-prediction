@@ -38,6 +38,36 @@ Azért fontos, hogy a felhasználó ehhez az adatbázishoz hozzájusson és le t
 
 **Röviden a követelménylistából**: A felhasználónak képesnek kell lennie a tanuló adatbázis összes adatának lekérdezésére.
 
+Terveink szerint a weblap már betöltéskor meg fogja jeleníteni a tanuló adatbázist teljes egészében, de biztosítanunk kell arra is lehetőséget, hogy maga a felhasználó is lekérdezhesse az adatbázis összes adatát.
+
+> **Tanuló adatbázis lekérdezése WHO régió szerint**
+
+**Röviden a követelménylistából**: A felhasználónak képesnek kell lennie a tanuló adatbázis adatait WHO régió szerint lekérdezni.
+
+A WHO 6 különböző részre osztotta a világot annak érdekében, hogy összeszedettebb adatokat tudjanak gyűjteni, azokat analizálni és megfigyelni.
+
+Ez az egyik legszemléletesebb felosztás az adatbázisban, ezért is fontos, hogy a felhasználó külön szűrhessen erre a kategóriára.
+
+> **Tanuló adatbázis lekérdezése országnév szerint**
+
+**Röviden a követelménylistából**: A felhasználónak képesnek kell lennie a tanuló adatbázis adatait országnév szerint lekérdezni.
+
+Mivel a világ minden országát leginkább a saját maga adatai érdekelnek, érthető módon, ezért fontos megadni a felhasználónak azt a lehetőséget, hogy országnév szerint szűrhessen az adatbázisban.
+
+> **Tanuló adatbázis lekérdezése időszak szerint**
+
+**Röviden a követelménylistából**: A felhasználónak képesnek kell lennie a tanuló adatbázis egy bizonyos időszakra eső adatainak lekérdezésére.
+
+Ahogyan az az influenzára és járványokra jellemző, nem minden betegség van jelen az év minden időszakában, vagy egyáltalán nem is létezik még egyes időszakokban.
+
+Ezért gondoljuk azt fontosnak, hogy a felhasználónak legyen lehetősége az adatokat lekérdezni csak a számára fontos időszakokban, amennyiben van adatunk az adott időszakról.
+
+> **Tanuló adatbázis lekérdezése K4 vagy K5 és K6 szerint**
+
+**Röviden a követelménylistából**: A felhasználónak képesnek kell lennie a tanuló adatbázis adatait WHO régió vagy országnév, és adott időszak szerint is lekérdezni.
+
+Az előbbi három pont ötvözeteként, fontos úgy kialakítanunk a rendszert, hogy a felhasználó egyszerre szűrhessen ezekre a fontosabb adatokra, hogy annál pontosabb adatokhoz juthasson hozzá.
+
 
 
 ## Funkcionális terv
