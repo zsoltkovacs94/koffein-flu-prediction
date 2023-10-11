@@ -168,6 +168,22 @@ Ez azért is jelentős, mert ahogyan az idő múlik, annál frissebb adatok lesz
 
 A modell nem fog miden egyes lekérdezéssel újra betanítódni, viszont az adatok mindig változnak - ezért fontos így elkészítenünk az adatokat.
 
+> **Figyelmeztetni a felhasználót a predikált adatok pontatlanságára**
+
+**Röviden a követelménylistából**: Figyelmeztetni kell a felhasználót, hogy a generált adatok gépi tanulás útján lettek generálva.
+
+Akármennyire sokáig tanítunk be egy modellt, az semmiképpen sem fogja tudni pontosan megjósolni a jövőt, mivel mi emberek se tudjuk azt megtenni.
+
+Éppen ezért szükséges tájékoztatnunk a felhasználót arról, hogy ha a predikált adatokkal foglalkozik, számítson arra, hogy az adatok nagy valószínűséggel pontatlanok, és ez ellen mi magunk sem tudunk semmit sem tenni.
+
+> **Figyelmeztetés kevés adat esetén**
+
+**Röviden a követelménylistából**: Országoknál vagy régióknál, ahol kevés a tanuló adat, ott figyelmeztessen a weboldal a növekedett hibavalószínűségre.
+
+Erre a WHO hivatalos oldala is felhívja a figyelmet, mivel vannak egyes országok és régiók, ahol ők se tudtak elég, vagy elég hiteles adatot szerezni.
+
+Mivel mi az ő általuk kiadott adatokat használjuk, mi nekünk is fontos figyelmeztetni a felhasználót ebben az esetben.
+
 
 
 ## Funkcionális terv
