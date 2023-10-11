@@ -184,6 +184,22 @@ Erre a WHO hivatalos oldala is felhívja a figyelmet, mivel vannak egyes ország
 
 Mivel mi az ő általuk kiadott adatokat használjuk, mi nekünk is fontos figyelmeztetni a felhasználót ebben az esetben.
 
+> **A weboldal felhasználóbarátsága**
+
+**Röviden a követelménylistából**: A weboldalnak felhasználó barátnak kell lennie.
+
+Szeretnénk, ha programunkat nem csak olyan felhasználók tudnák használni és megérteni, akik jártasak az informatika vagy biológia egyes területeiben, hanem bárki, akit érdekelnek ezek at adatok.
+
+Ezért szükséges egy olyan weboldalt kialakítanunk, amelyet könnyű használni bármilyen felhasználó által, függetlenül koruktól, hozzáértésüktől.
+
+> **A weboldal reszponzivitása**
+
+**Röviden a követelménylistából**: A weboldalnak reszponzívnak kell lennie, hogy bármilyen képernyőn felhasználóbarát módon jelenjen meg.
+
+Mivel a világon nem minden személy egy fajta eszközt használ, ezért fontos arra is gondolnunk, hogy minden gépi eszközön sikeresen meg tudjuk jeleníteni oldalunkat.
+
+Bár a programot nem fejlesztjük mobil eszközökre, reméljük, hogy bármilyen más gépi eszköz képernyőjén meg tudjon jelenni az oldal úgy, hogy tartsa formáját és használhatóságát.
+
 
 
 ## Funkcionális terv
