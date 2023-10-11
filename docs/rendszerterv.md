@@ -84,7 +84,25 @@ Az alkalmazásunk legegyedibb tulajdonsága az lesz, hogy betanított modell seg
 
 A betanított modell által generált adatokat is szükséges tárolnunk valahol, így a tanító adatbázis példájára ezeket az új adatokat is egy adatbázisban fogjuk tárolni.
 
+> **Predikált adatok generálása**
 
+**Röviden a követelménylistából**: A predikált adatokat egy python program készíti gépi tanulással.
+
+Ahogy azt ez előbbi pontban írtuk, további megbetegedések adatainak jóslása az egyik legfontosabb része szoftverünknek.
+
+A modell terveink szerint mi általunk lesz megépítve és betanítva a tanuló adatbázis adatai szerint, így szeretnénk olyan adatokat generálni, amelyek a legközelebb álhatnak a jövő tényleges megbetegedésinek adataihoz.
+
+> **ILI gyanús esetek prediktálása**
+
+**Röviden a követelménylistából**: A programnak prediktálnia kell az ILI gyanús megbetegedések számát.
+
+A tanuló adatbázis egyik adatoszlopa az ILI gyanús (influenzagyanús) megbetegedések számát tárolja, ezért a betanított modellünknek sikeresen meg kell tudni jósolnia ezen adatok lehetséges jövőbeli fejlődését.
+
+> **ILI járóbetegek prediktálása**
+
+**Röviden a követelménylistából**: A programnak prediktálnia kell az ILI járóbetegek számát.
+
+A tanuló adatbázis egyik adatoszlopa az ILI (influenzás) járóbetegek számát tárolja, ezért a betanított modellünknek sikeresen meg kell tudni jósolnia ezen adatok lehetséges jövőbeli fejlődését.
 
 ## Funkcionális terv
 
