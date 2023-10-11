@@ -15,6 +15,7 @@ A rendszer céljai:
 - A rendszer képes megjósolni jövőbeli megbetegedések számát egy betanított modell segítségével
 - A rendszer folyamatosan bővül új aktuális adatokkal
   - A betanított modell ezzel együtt fejlődik
+- Bármilyen gépi eszközön működjön a webes alkalmazás, internetes kapcsolat feltétele mellett
 
 A rendszer nem céljai:
 
@@ -23,6 +24,7 @@ A rendszer nem céljai:
 - A rendszer ténylegesen jósolja meg a jövőt, csak pontos adatokat adjon a predikciókban
 - A felhasználó képes mindkét adatbázis adataiba belenyúlni, megváltoztatni azokat
 - A felhasználó hozzáfér a betanított modellhez
+- A webes alkalmazásnak mobil eszközökön is meg kell jelennie és futnia
 
 ## Vágyálomrendszer leírása
 
