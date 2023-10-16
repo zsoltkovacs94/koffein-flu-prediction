@@ -191,12 +191,23 @@ A weboldal felületének felhasználóbarátnak és resztponzívnak kell lennie.
 
 ## Képernyőtervek
 
-### 1. Kezdőlap
+Előretervezni a felhasználói felületet kulcsfontosságú egy webes alkalmazás esetében. 
+
+Alapvető tényként kezeljük a reszponzivitás használatát, így nem csak számítógépre, hanem például mobiltelefonra is tervezünk.
+
+A legfontosabb képernyőterv az a szemmel látható felület, amely megjelenik az oldal betöltése során. 
+Ezt főoldalnak, vagy másképpen kezdőlapnak nevezzük.
+
+### Kezdőlap
+
+Érthető, letisztult és lényegretörő kezdőlapot hozunk létre, amelyen a felhasználó könnyedén és gondtalanul tud navigálódni.
 
 #### Számítógépes felület:
+Ez az alapvető megjelenítési forma.
 
 ![Kezdőlap_számítógép](img/kezdolap.drawio.png)
 
 #### Telefonos felület:
+Kisebb kijelző esetében létfontosságú másféle elrendezést alkalmazni.
 
 ![Kezdőlap_számítógép](img/kezdolap_telefon.drawio.png)
