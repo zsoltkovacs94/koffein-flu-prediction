@@ -190,3 +190,13 @@ Kevés tanuló adat esetén figyelmeztetni kell a felhasználót a pontatlanság
 A weboldal felületének felhasználóbarátnak és resztponzívnak kell lennie.
 
 ## Képernyőtervek
+
+### 1. Kezdőlap
+
+#### Számítógépes felület:
+
+![Kezdőlap_számítógép](img/kezdolap.drawio.png)
+
+#### Telefonos felület:
+
+![Kezdőlap_számítógép](img/kezdolap_telefon.drawio.png)
