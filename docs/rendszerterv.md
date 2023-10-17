@@ -10,6 +10,84 @@ A rendszer az adatokat a projecten belül saját adatbázisban tárolja aminek a
 
 ## Projektterv
 
+A projekt egy webes frontend, ami kommunikál egy adatbázissal és egy betanított modellel, ami múltbéli influenza adatok alapján generál új adatokat.
+
+### Elvégzendő feladatok
+
+Az elvégzendő feladatok közé tartozik a rendszer létrehozása és a tesztek elvégzése.
+
+A rendszer elkészítésének fontosabb lépései a:
+
+- Reszponzív és felhasználóbarát webes felület elkészítése
+- Adatbáziskezelő rendszer megvalósítása
+- Tanuló és generált adatok adatbázisának létrehozása
+- Gépi tanulásos algoritmus elkészítése és betanítása
+- Betanított modell felhasználása új adatok generálására
+- Frontend és backend kommunikáció megvalósítása
+- Rendszermodulok különálló tesztelése
+- Rendszermodulok közös működésének tesztelése
+
+Fontos minden rendszerelemet külön és a többivel együttműködve is tesztelni.
+
+Ezért a tesztelés több lépésben valósul meg:
+
+- Részleges tesztelés
+- Teljes tesztelés
+- Közös tesztelés
+
+A projekten dolgozók mindegyikének részt kell vennie a rendszer megvalósításában.
+
+### Felelősségi körök
+
+| Név | Felelősségi kör | Vállalt rész |
+|-----|-----------------|--------------|
+| Czinege Lajos | Programozó | Backend megírása |
+| Jurás Dorka | Programozó | Adatbáziskezelő rendszer megvalósítása |
+| Kovács Zsolt | Programozó | Gépi tanulásos modell elkészítése és adatok generálásának megvalósítása |
+| Madar Boglárka | Programozó | Felhasználóbarát és reszponzív megjelenítés megvalósítása |
+
+### Mérföldkövek
+
+A projekt legfontosabb mérföldkövei:
+
+- Modulok részleges elkészülése
+- Demo bemutatása
+- Modulok teljes elkészülése
+- Modulok közös működésének megvalósítása
+- Rendszer átadása
+
+### Ütemterv
+
+Az ütemterv két fontos rézben áll, a programozásos feladatok és a nem-programozásos feladatok.
+
+#### Programozáshoz kötődő feladatok ütemterve
+
+A programozásos feladatok tartalmazzák egyes rendszermodulok megvalósítását, valamint az egységtesztelhető modulok és funkciók egységtesztelését.
+
+| Feladat | Határidő |
+|---------|----------|
+| Modulok részleges elkészítése | 2023. 11. 05. |
+| Modulok részleges működésének tesztelése | 2023. 11. 05. |
+| Demo bemutató | 2023. 11. 05. |
+| Modulok teljes működésének megvalósítása | 2023. 11. 26. |
+| Teljesen elkészült modulok tesztelése | 2023. 11. 26. |
+| Modulok közös működésének megvalósítása | 2023. 11. 26. |
+| Modulok közös működésének tesztelése | 2023. 11. 26. |
+| Végleges rendszer átadása | 2023. 11. 26. |
+
+### Programozáshoz nem kötődő feladatok ütemterve
+
+A nem-programozásos feladatok tartalmazzák a nem-egységtesztelhető modulok és funkciók tesztelését valamint a testlogok kitöltését.
+
+| Feladat | Határidő |
+|---------|----------|
+| Modulok részleges működésének tesztelése | 2023. 11. 05. |
+| Részlegesen elkészült modulok tesztjeiről testlog kitöltése | 2023. 11. 05. |
+| Teljesen elkészült modulok tesztelése | 2023. 11. 26. |
+| Teljesen elkészült modulok tesztjeiről testlog kitöltése | 2023. 11. 26. |
+| Modulok közös működésének tesztelése | 2023. 11. 26. |
+| Modulok közös működésének tesztjeiről testlog kitöltése | 2023. 11. 26. |
+
 ## Üzleti folyamatok modellje
 
 ## Követelmények
