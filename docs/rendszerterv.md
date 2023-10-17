@@ -286,6 +286,96 @@ Ezen kívül szükséges betartanunk a WHO adatszabályzatát is, amely megtalá
 
 ## Funkcionális terv
 
+### Felhasználói felület
+
+A felhasználói felület egy weblap, amin a felhasználó megtekintheti és szűrheti a tanuló adatbázis és a generált adatbázisok tartalmát, valamint új adatokat generáltathat.
+
+Két lapot tartalmaz a weboldal, egyet a generált adatoknak és egyet a tanuló adatoknak.
+
+A weblapok között egy navigációs menü segítségével válthatunk.
+
+#### Generált adatok lapja
+
+Funkciók:
+
+- Generált adatok megjelenítése
+- Generált adatok szűrése
+- Új adatok generáltatása
+
+![Generált adatok weblapjának funkciói](img/generalt_wl.png)
+
+A megjelenített adatok dinamukisak, mindig az adatbázis jelenlegi állapotát tükrözik.
+
+Ezen a lapon megtekinthetők a korábban generált adatok.
+
+Új adatok generáltatása esetén az adatok bekerülnek a generált adatok adatbázisába, majd megjelenítésre kerülnek.
+
+#### Tanuló adatok lapja
+
+Funkciók:
+
+- Tanuló adatok megjelenítése
+- Tanuló adatok szűrése
+
+![Tanuló adatok weblapjának funkciói](img/tanuloadatok_wl.png)
+
+A megjelenített adatok dinamikusan, mindig az adatbázis jelenlegi állapotát tükrözik.
+
+A tanuló adatbázis csakis a WHO hivatalos adatait tartalmazza.
+
+### Adatbázis kezelő
+
+Az adatbázis kezelő felelős az adatbázissal való közvetlen kommunikációért.
+
+Elvégzi a lekérést, majd továbbitja az adatokat.
+
+Mindkét adatbázis az adatbázis kezelőn keresztül érhető el.
+
+#### Adatbázis kezelő funkciói
+
+Az adatbázis kezelő lekérdezést mindkét adatbázishoz biztosít.
+
+Az adatbázis kezelő a hozzáadás lehetőségét csakis a generált adatok adatbázisához biztosít.
+
+![Adatbázis kezelő funkciói](img/ab_kez_funk.png)
+
+### Adatgeneráló
+
+Az adatgeneráló program egy betanított gépi tanulásos modelleket használó program.
+
+#### Modellek
+
+Az adatgeneráló program négy modellt használ.
+
+- ILI gyanús esetek számának generáltatására
+- ILI járóbetegek számának generáltatására
+- SARI gyanús esetek számának generáltatására
+- SARI fekvőbetegek számának generáltatására
+
+#### Működés
+
+A modellek csakis számadattal dolgoznak, ezért a kapott adatokat át kell alakítani, ezért egy adatátalakító felelős.
+
+Az átalakított adatokat megkapja az adatgeneráló program, ami mind a négy modellel új adatokat generál.
+
+A generált adatokat visszaadja az adatátalakítónak, majd az átalakító továbbítja az adatbázis kezelőnek.
+
+![Adatgenerálás folyamata](img/adatgen_funk.png)
+
+### Adatátalakító
+
+Az adatátalakító a kapott adatbázis adatok szöveges oszlopaihoz számokat rendel, majd így továbbítja az adatgenerálónak.
+
+A megjelenő WHO régiók kódjait és országok neveit a abc sorrendben sorszámozzuk, majd ezzel helyettesítve továbbítjuk az adatgenerálónak.
+
+### Backend
+
+A backend feladata összekötni a weblapot, az adatbázis kezelőt és az adatgenerálót.
+
+A backend a felhasználói felületen beállítottak szerint jelzi az adatbázis kezelőnek milyen adatokra van szükség, majd a kapott adatokat megjeleníti a weblapon.
+
+Új adat generálása szerint a backend jelzi az adatgenerálónak, hogy milyen adatokat kell generálni, majd a generáló lefutása után jelzi az adatbázis kezelőnek milyen adatokra van szükség, majd megjeleníti a weblapon.
+
 ## Fizikai környezet
 
 ## Absztrakt domain modell
