@@ -382,6 +382,96 @@ A backend a felhasználói felületen beállítottak szerint jelzi az adatbázis
 
 ## Architekturális terv
 
+### Egy architekturális tervezési minta 
+
+Az alkalmazás architekturális tervezési mintája segít az alkalmazás szervezésében és az egyes komponensek közötti kapcsolatok meghatározásában. Egy jól megválasztott minta növelheti az alkalmazás skálázhatóságát, karbantarthatóságát és kiterjeszthetőségét.
+
+### Az alkalmazás rétegei, fő komponensei, ezek kapcsolatai
+
+#### Alkalmazás rétegei:
+
+1. Felhasználói felület réteg:
+
+Felhasználói interfész (UI): A webes alkalmazás ezen rétege felelős az alkalmazás felhasználói felületének megjelenítéséért. 
+A felhasználók itt kezdeményezik a különböző lekérdezéseket, megadhatják a kívánt szűrőket (országok, régiók) és megjelenítik az eredményeket.
+
+2. Üzleti logika réteg:
+
+Lekérdezés-szolgáltatás: Ebben a rétegben található a logika a felhasználói kérések feldolgozásához és az adatbázisokhoz való kapcsolódáshoz. 
+A szolgáltatás lehetővé teszi a felhasználók számára, hogy lekérdezzék a tanuló adatbázis adatait és generálják az új adatokat a betanított modell segítségével.
+
+3. Adatbázis réteg:
+
+Tanuló adatbázis: Ez a komponens tartalmazza a tanuló adatbázist, amely az influenzás és COVID megbetegedések előző évek adatait tartalmazza. 
+Az adatbázisban szerepelnek az országok és régiók adatai, valamint az influenzás és COVID megbetegedések számok éves és heti bontásban.
+
+Prediktált adatok adatbázis: Ez a komponens tartalmazza azokat az adatokat, amelyeket a gépi tanulással generáltak a jövőbeli megbetegedések becsléséhez.
+A prediktált adatokat itt tárolják az alkalmazás naprakészen tartásához.
+
+4. Gépi tanuló program réteg:
+
+Betanított modell: Ez a komponens tartalmazza a gépi tanulással betanított modellt, amely az előző évek adatokon alapuló becsléseket generál a jövőbeli megbetegedések számára.
+
+5. Hálózati réteg:
+   
+Adatbeszerzési szolgáltatások: Ennek a rétegnek a feladata a tanuló adatbázisból és más forrásokból származó adatok beszerzése, valamint a gépi tanuló programnak az új adatok feltöltése.
+
+#### Rétegek és komponensek közötti kapcsolat:
+
+A felhasználói felület (UI) réteg a felhasználókat összekapcsolja az API szerverrel, hogy lekérdezéseket végezzen a tanuló adatbázison és prediktált adatokon keresztül.
+
+Az API szerver közvetíti a kéréseket és kapcsolódik az üzleti logika és adatkezelés réteghez. Ez az összeköttetés lehetővé teszi az adatok lekérdezését az adatbázisból és a prediktált adatok elérést a prediktáló programhoz.
+
+Az üzleti logika és adatkezelés réteg felelős az adatbázis működtetéséért, a tanuló adatok és prediktált adatok betöltéséért, valamint a prediktáló programhoz való kapcsolódásért. Az adatbázis tartalmazza a tanuló és prediktált adatokat, amelyek a gépi tanulás alapján generálódnak.
+
+A gépi tanuló program réteg tartalmazza a tanuló modellt, amely a tanuló adatok alapján generálja a prediktált adatokat. Az új adatokat visszatölti az adatbázisba.
+
+A kapcsolat az adatbázisok és a prediktáló program között a tanuló adatok betöltését és a prediktált adatok frissítését szolgálja. Az adatok a prediktáló program által generálódnak, majd tárolódnak az adatbázisban.
+
+Az üzleti logika és adatkezelés réteg közvetít az API szerver és a gépi tanuló program között. Az API szerver lekéri az adatokat a tanuló adatbázisból, majd elküldi azokat a prediktáló programnak a generáláshoz. Az új adatok frissítése a prediktált adatbázisban is ezen a rétegen keresztül történik.
+
+
+### Változások kezelése
+
+A változások kezelése kiemelkedően fontos az olyan webes alkalmazások esetében, amelyek epidemiológiai becsléseket készítenek, mint például a COVID és influenza becslő alkalmazás.
+
+Az alábbi szempontok fontosak a változások hatékony kezeléséhez:
+
+1. Adatfrissítések kezelése:
+   
+Az alkalmazásnak rendszeresen frissítenie kell az adatokat megbízható forrásokból, jelenesetben a WHO adatait, hogy mindig naprakészek legyenek.
+
+2. Automatikus frissítések:
+   
+Érdemes automatikus frissítési mechanizmusokat bevezetni, amelyek rendszeresen ellenőrzik az adatforrásokat, és frissítik az alkalmazás adatbázisát vagy adatokat.
+
+3. Felhasználói visszajelzés:
+   
+A weboldalnak lehetőséget kell biztosítania a felhasználóknak a visszajelzés küldésére, például: ha úgy érzik, hogy az adatok vagy becslések pontatlanok. 
+Ez segíthet az alkalmazás fejlesztésében és javításában is.
+
+4. Hibajavítás:
+   
+Reagállni kell a hibajelentésekre, és problémákra, különösen akkor, amikor fontos változások történnek a járványügyi helyzetben.
+
+5. Jogszabályi változások:
+   
+Ha jogszabályi változások történnek, például az adatvédelem vagy az egészségügyi előírások terén, az oldalnak alkalmazkodnia kell ezekhez a változásokhoz.
+
+6. Tesztelés és visszajelzés:
+   
+Az új funkciókat, változásokat alaposan tesztelni kell, mielőtt élő rendszerbe kerülnének.	
+
+### Rendszer bővíthetősége
+
+A rendszer bővíthetősége kulcsfontosságú a hosszú távú sikerhez, mivel lehetővé teszi az alkalmazás funkcióinak és képességeinek kibővítését az új igények és technológiai fejlesztések alapján.
+
+Folyamatos fejlesztések és frissítések szükségesek ahhoz, hogy az új funkciók és fejlesztések az aktuális igényekhez igazodjanak.
+
+### Biztonsági funkciók
+
+Az alkalmazásnak szigorú adatvédelmi politikával kell rendelkeznie, és megfelelő intézkedéseket kell tenni az érzékeny felhasználói adatok védelme érdekében.
+
 ## Adatbázis terv
 
 ## Tesztterv
