@@ -380,6 +380,46 @@ A backend a felhasználói felületen beállítottak szerint jelzi az adatbázis
 
 ## Absztrakt domain modell
 
+### Domain specifikáció, fogalmak
+
+#### Fogalmak:
+
+* **Webes alkalmazás (WebApp):** Az alkalmazás, amely lehetővé teszi a felhasználók számára, hogy böngésszenek és lekérdezzék az influenzás és COVID-19 megbetegedések adatait, valamint predikciós információkat nyújt.
+
+* **Tanuló adatbázis:** Az adatbázis, amely tartalmazza az influenzás és COVID-19 megbetegedések előzményeit és a modell betanításához szükséges adatokat.
+
+* **Prediktált adatbázis:** Az adatbázis, amely tartalmazza a jövőbeli influenzás és COVID-19 megbetegedések előrejelzett számait a betanított modell segítségével.
+
+* **Betanított modell:** A gépi tanulási modell, amely a tanuló adatok alapján generálja a prediktált adatokat.
+
+* **Felhasználói felület:** Az alkalmazás grafikus része, amely lehetővé teszi a felhasználók számára az adatok lekérdezését és megjelenítését.
+
+### Absztrakt komponensek, ezek kapcsolatai
+
+#### Absztrakt komponensek:
+
+* **Webes alkalmazás (WebApp):** A fő alkalmazás, amely lehetővé teszi a felhasználók számára a tanuló és prediktált adatok böngészését és lekérdezését.
+
+* **Tanuló adatbázis:** Az adatbázis, amely tartalmazza a történelmi influenzás és COVID-19 megbetegedések adatait.
+
+* **Prediktált adatbázis:** Az adatbázis, amelyben a gépi tanulási modell generálja a jövőbeli influenzás és COVID-19 megbetegedések becsléseit.
+
+* **Gépi tanulási modell:** A modell, amely tanul a tanuló adatbázis adataiból, majd predikciókat hoz létre a prediktált adatbázis számára.
+
+* **Felhasználói felület:** Az alkalmazás része, ahol a felhasználók találkoznak és interakcióba lépnek az alkalmazással.
+
+#### Kapcsolatok:
+
+A Webes alkalmazás kommunikál mindkét adatbázissal, az Gépi tanulási modell a Tanuló adatbázis adatait felhasználva a predikciókhoz.
+
+A Gépi tanulási modell rendszeresen frissíti a Prediktált adatbázist az új adatokkal és predikciókkal.
+
+A Felhasználói felület lehetővé teszi a felhasználók számára a Tanuló adatbázis és a Prediktált adatbázis lekérdezését, valamint a gépi tanulási modellek által generált adatok megjelenítését.
+
+A Felhasználói felület információkat jelenít meg a felhasználóknak az adatok eredetéről és a gépi tanulási modellek használatáról.
+
+A Webes alkalmazás figyelmezteti a felhasználókat, ha az adatok pontatlansága vagy kevés tanuló adat esetén a predikciók megbízhatatlanná válhatnak.
+
 ## Architekturális terv
 
 ### Egy architekturális tervezési minta 
@@ -390,31 +430,25 @@ Az alkalmazás architekturális tervezési mintája segít az alkalmazás szerve
 
 #### Alkalmazás rétegei:
 
-1. Felhasználói felület réteg:
+* Felhasználói felület réteg:
+   * **Felhasználói interfész (UI):** A webes alkalmazás ezen rétege felelős az alkalmazás felhasználói felületének megjelenítéséért. 
+   A felhasználók itt kezdeményezik a különböző lekérdezéseket, megadhatják a kívánt szűrőket (országok, régiók) és megjelenítik az eredményeket.
 
-Felhasználói interfész (UI): A webes alkalmazás ezen rétege felelős az alkalmazás felhasználói felületének megjelenítéséért. 
-A felhasználók itt kezdeményezik a különböző lekérdezéseket, megadhatják a kívánt szűrőket (országok, régiók) és megjelenítik az eredményeket.
+* Üzleti logika réteg:
+   * **Lekérdezés-szolgáltatás:** Ebben a rétegben található a logika a felhasználói kérések feldolgozásához és az adatbázisokhoz való kapcsolódáshoz. 
+   A szolgáltatás lehetővé teszi a felhasználók számára, hogy lekérdezzék a tanuló adatbázis adatait és generálják az új adatokat a betanított modell segítségével.
 
-2. Üzleti logika réteg:
+* Adatbázis réteg:
+   * **Tanuló adatbázis:** Ez a komponens tartalmazza a tanuló adatbázist, amely az influenzás és COVID megbetegedések előző évek adatait tartalmazza. 
+   Az adatbázisban szerepelnek az országok és régiók adatai, valamint az influenzás és COVID megbetegedések számok éves és heti bontásban.
+   * **Prediktált adatok adatbázis:** Ez a komponens tartalmazza azokat az adatokat, amelyeket a gépi tanulással generáltak a jövőbeli megbetegedések becsléséhez.
+   A prediktált adatokat itt tárolják az alkalmazás naprakészen tartásához.
 
-Lekérdezés-szolgáltatás: Ebben a rétegben található a logika a felhasználói kérések feldolgozásához és az adatbázisokhoz való kapcsolódáshoz. 
-A szolgáltatás lehetővé teszi a felhasználók számára, hogy lekérdezzék a tanuló adatbázis adatait és generálják az új adatokat a betanított modell segítségével.
+* Gépi tanuló program réteg:
+   * **Betanított modell:** Ez a komponens tartalmazza a gépi tanulással betanított modellt, amely az előző évek adatokon alapuló becsléseket generál a jövőbeli megbetegedések számára.
 
-3. Adatbázis réteg:
-
-Tanuló adatbázis: Ez a komponens tartalmazza a tanuló adatbázist, amely az influenzás és COVID megbetegedések előző évek adatait tartalmazza. 
-Az adatbázisban szerepelnek az országok és régiók adatai, valamint az influenzás és COVID megbetegedések számok éves és heti bontásban.
-
-Prediktált adatok adatbázis: Ez a komponens tartalmazza azokat az adatokat, amelyeket a gépi tanulással generáltak a jövőbeli megbetegedések becsléséhez.
-A prediktált adatokat itt tárolják az alkalmazás naprakészen tartásához.
-
-4. Gépi tanuló program réteg:
-
-Betanított modell: Ez a komponens tartalmazza a gépi tanulással betanított modellt, amely az előző évek adatokon alapuló becsléseket generál a jövőbeli megbetegedések számára.
-
-5. Hálózati réteg:
-   
-Adatbeszerzési szolgáltatások: Ennek a rétegnek a feladata a tanuló adatbázisból és más forrásokból származó adatok beszerzése, valamint a gépi tanuló programnak az új adatok feltöltése.
+* Hálózati réteg:
+   * **Adatbeszerzési szolgáltatások:** Ennek a rétegnek a feladata a tanuló adatbázisból és más forrásokból származó adatok beszerzése, valamint a gépi tanuló programnak az új adatok feltöltése.
 
 #### Rétegek és komponensek közötti kapcsolat:
 
@@ -437,30 +471,24 @@ A változások kezelése kiemelkedően fontos az olyan webes alkalmazások eset�
 
 Az alábbi szempontok fontosak a változások hatékony kezeléséhez:
 
-1. Adatfrissítések kezelése:
-   
-Az alkalmazásnak rendszeresen frissítenie kell az adatokat megbízható forrásokból, jelenesetben a WHO adatait, hogy mindig naprakészek legyenek.
+* Adatfrissítések kezelése:  
+   * Az alkalmazásnak rendszeresen frissítenie kell az adatokat megbízható forrásokból, jelenesetben a WHO adatait, hogy mindig naprakészek legyenek.
 
-2. Automatikus frissítések:
-   
-Érdemes automatikus frissítési mechanizmusokat bevezetni, amelyek rendszeresen ellenőrzik az adatforrásokat, és frissítik az alkalmazás adatbázisát vagy adatokat.
+* Automatikus frissítések:  
+   * Érdemes automatikus frissítési mechanizmusokat bevezetni, amelyek rendszeresen ellenőrzik az adatforrásokat, és frissítik az alkalmazás adatbázisát vagy adatokat.
 
-3. Felhasználói visszajelzés:
-   
-A weboldalnak lehetőséget kell biztosítania a felhasználóknak a visszajelzés küldésére, például: ha úgy érzik, hogy az adatok vagy becslések pontatlanok. 
-Ez segíthet az alkalmazás fejlesztésében és javításában is.
+* Felhasználói visszajelzés:  
+   * A weboldalnak lehetőséget kell biztosítania a felhasználóknak a visszajelzés küldésére, például: ha úgy érzik, hogy az adatok vagy becslések pontatlanok. 
+   Ez segíthet az alkalmazás fejlesztésében és javításában is.
 
-4. Hibajavítás:
-   
-Reagállni kell a hibajelentésekre, és problémákra, különösen akkor, amikor fontos változások történnek a járványügyi helyzetben.
+* Hibajavítás:  
+   * Reagállni kell a hibajelentésekre, és problémákra, különösen akkor, amikor fontos változások történnek a járványügyi helyzetben.
 
-5. Jogszabályi változások:
-   
-Ha jogszabályi változások történnek, például az adatvédelem vagy az egészségügyi előírások terén, az oldalnak alkalmazkodnia kell ezekhez a változásokhoz.
+* Jogszabályi változások:  
+   * Ha jogszabályi változások történnek, például az adatvédelem vagy az egészségügyi előírások terén, az oldalnak alkalmazkodnia kell ezekhez a változásokhoz.
 
-6. Tesztelés és visszajelzés:
-   
-Az új funkciókat, változásokat alaposan tesztelni kell, mielőtt élő rendszerbe kerülnének.	
+* Tesztelés és visszajelzés: 
+   * Az új funkciókat, változásokat alaposan tesztelni kell, mielőtt élő rendszerbe kerülnének.	
 
 ### Rendszer bővíthetősége
 
