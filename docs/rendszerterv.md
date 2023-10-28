@@ -502,6 +502,43 @@ Az alkalmazásnak szigorú adatvédelmi politikával kell rendelkeznie, és megf
 
 ## Adatbázis terv
 
+**Megjegyzés - Ez még nem a végleges tervünk az adattárolásra. Terveink az alkalmazás fejelsztése alatt változhatnak, és ezt ezen pont frissítésével jelezni fogjuk.**
+
+Terveink szerint az alkalmazásunk két fő adatbázist fog alkalmazni ahhoz, hogy megfelelően működjön minden:
+
+- Tanuló adatok
+- Generált adatok
+
+### A Tanuló adatok adatbázis felépítése
+
+Ez az adatbázis tartalmazza azokat az adatokat, amelyek a WHO hivatalos adatainak egy szűrt része (amelyek fontosak a mi általunk készített alkalmazás működéséhez). Ezen adatok a következők:
+
+- **ID** (int) - Az adatok azonosítója. Elsődleges kulcs, amely egyedi minden egyes adatsorhoz. Ezt az adatbázis generálja.
+- **WHOREGION** (varchar(10)) - A WHO régió neve. Nem lehet NULL érték.
+- **COUNTRY_AREA_TERRITORY** (varchar(200)) - Az adott ország neve. Nem lehet NULL érték.
+- **ISO_YEAR** (int) - Az év, amikor a mérés készült. Nem lehet NULL érték.
+- **ISO_WEEK** (int) - A hét, amikor a mérés készült. Nem lehet NULL érték.
+- **ILI_CASE** (int) - Az influenzagyanús betegek száma.
+- **ILI_OUTPATIENTS** (int) - Az influenzás járóbetegek száma.
+- **SARI_CASE** (int) - A súlyos léguti megbetegedésgyanús betegek száma.
+- **SARI_INPATIENTS** (int) - A súlyos léguti mebgetegedéses fekvőbetegek száma.
+
+### A Generált adatok adatbázis felépítése
+
+Ez az adatbázis tartalmazza azokat az adatokat, amelyeket az általunk betanított modell fog generálni. Az adatbázis éppen ezért eleinte nem tartalmaz semmilyen adatot, csak akkor fog frissülni adatokkal, amint a felhasználó valamilyen lekérdezést hajtott végre.
+
+Az adatbázis felépítése ugyanaz, mint a Tanuló adatok adatbázisnak, viszont csak olyan adatok és adatoszlopok fognak megjelenni az alkalmazói oldalon, amit a felhasználó lekérdezett. Addig amíg ez nem történik meg, az adatbázis üres, de oszlopai a következők:
+
+- **ID** (int) - Az újonnan generált adatok azonosítója. Elsődleges kulcs, amely egyedi minden egyes adatsorhoz. Az adatbázis generálja minden egyes lekérdezés után.
+- **WHOREGION** (varchar(10)) - A WHO régió neve. Nem lehet NULL érték.
+- **COUNTRY_AREA_TERRITORY** (varchar(200)) - Az adott ország neve. Nem lehet NULL érték.
+- **ISO_YEAR** (int) - Az év, amikor a mérés készült. Nem lehet NULL érték.
+- **ISO_WEEK** (int) - A hét, amikor a mérés készült. Nem lehet NULL érték.
+- **ILI_CASE** (int) - A betanított modell által generált inluenzagyanús betegek száma.
+- **ILI_OUTPATIENTS** (int) - A betanított modell által generált influenzás járóbetegek száma.
+- **SARI_CASE** (int) - A betanított modell által generált súlyos léguti megbetegedésgyanús betegek száma.
+- **SARI_INPATIENTS** (int) - A betanított modell által generált súlyos léguti megbetegedéses fekvőbetegek száma.
+
 ## Tesztterv
 
 ## Telepítési terv
