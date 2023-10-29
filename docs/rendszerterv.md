@@ -509,6 +509,8 @@ Terveink szerint az alkalmazásunk két fő adatbázist fog alkalmazni ahhoz, ho
 - Tanuló adatok
 - Generált adatok
 
+Az adattárolás és adatbázisok összehangolása, karbantartása, a szerver futtatása mind a MySQL alkalmazással fog megvalósulni terveink szerint.
+
 ### A Tanuló adatok adatbázis felépítése
 
 Ez az adatbázis tartalmazza azokat az adatokat, amelyek a WHO hivatalos adatainak egy szűrt része (amelyek fontosak a mi általunk készített alkalmazás működéséhez). Ezen adatok a következők:
@@ -540,5 +542,31 @@ Az adatbázis felépítése ugyanaz, mint a Tanuló adatok adatbázisnak, viszon
 - **SARI_INPATIENTS** (int) - A betanított modell által generált súlyos léguti megbetegedéses fekvőbetegek száma.
 
 ## Tesztterv
+
+A tesztelések célja a rendszer és komponensei funkcionalitásának teljes vizsgálata, ellenőrzése, a rendszer által megvalósított üzleti szolgáltatások verifikálása.
+
+Ide tartoznak:
+
+- **Felhasználó felület tesztelése**
+  - A szoftvernek bármilyen operációs rendszeren és böngészőben meg kell tudnia jelenni.
+  - A felhasználónak képesnek kell lennie az adatokat megtekinteni, szűrnie.
+  - A felhasználónak képesnek kell lennie könnyen navigálnia a weboldal lapjai között.
+  - A felületen megfelelően működjön a navigálás.
+
+- **Adatbázis és adatbázis kezelő tesztelése**
+  - Legyen meg az adatbázisok és az adatbázis kezelő között a kapcsolat.
+  - Az adatbázis kezelő legyen képes elvégezni a lekéréseket.
+  - Az adatbázis kezelő legyen képes továbbítani a lekért adatokat a weboldal felé.
+  - Az adatbázis kezelő biztosítson lekérdezési engedélyt mindkét adatbázisnak.
+  - Az adatbázis kezelő csak a generált adatbázisnak adjon hozzáadási engedélyt.
+
+- **Adatgeneráló tesztelése**
+  - Az adatgeneráló legyen képes új adatokat generálni az adatátalakítótól kapott adatokból.
+
+- **Adatátalakító tesztelése**
+  - Az adatátalakító az adatbázisból kapott szöveges adatokat legyen képes átalakítani számadattá.
+
+- **Backend tesztelése**
+  - A backend megfelelő összeköttetést biztosítson a weblap, az adatbázis kezelő és az adatgeneráló között.
 
 ## Telepítési terv
