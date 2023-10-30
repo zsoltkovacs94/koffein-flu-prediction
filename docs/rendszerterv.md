@@ -90,6 +90,36 @@ A nem-programozásos feladatok tartalmazzák a nem-egységtesztelhető modulok �
 
 ## Üzleti folyamatok modellje
 
+1.Üzleti Szereplők:
+
+Felhasználók: Azok, akik használják a webes felületet, hogy hozzáférjenek COVID és influenza betegek adataihoz, és országok szerinti szűrési lehetőségekhez.
+  
+Adminisztrátor: Az adminisztrátoroknak az alábbi feladatokat szükséges elvégezniük:
+  roblémák kezelése: Az adminisztrátorok foglalkozhatnak a problémákkal, panaszokkal vagy visszajelzésekkel.
+  Rendszerkarbantartás: Az adminisztrátorok felelősek a rendszer karbantartásáért, például biztonsági mentések készítéséért és a rendszer teljesítményének optimalizálásáért.
+  Adatbiztonság és adatvédelem: Az adminisztrátorok felelősek lehetnek az adatbiztonság és adatvédelem fenntartásáért.
+  Kommunikáció: Gyakori kommunikálás a felhasználókkal, például: értesítés küldése, válasz a felhasználó kérdéseisre, kéréseire.
+Az adminisztrátorok szerepe tehát az alkalmazás hatékony működésének és a felhasználók támogatásának biztosítása, valamint a biztonság és adatvédelem fenntartása.
+
+2.Üzleti Folyamatok:
+
+Adatok Böngészése és Szűrése:
+  A felhasználók megtekinthetik a rendszerben található COVID és influenza betegek adatait.
+      Lehetőség van az adatok országok szerinti szűrésére, hogy megnézzék egy adott országban regisztrált betegek adatait.
+      
+Adatok Megtekintése:
+  A felhasználók megtekinthetik az egyes betegségek havi betegeinek számát.
+      
+Adatok Frissítése (Adminisztrátor szereplők számára):
+  Az adminisztrátorok felelősek az adatok frissítéséért, például új betegek hozzáadásáért vagy meglévő betegek adatainak módosításáért.
+      
+Adatok Rendszeres Karbantartása (Adminisztrátor szereplők számára):
+  Az adminisztrátorok biztosítják, hogy az adatok naprakészek és megbízhatóak legyenek.
+  		
+3.Üzleti Entitások:
+	COVID és Influenza Betegek Adatbázisa: Az adatbázis tartalmazza a COVID és influenza betegek számát.
+
+
 ## Követelmények
 
 Ez azoknak a követelményeknek a listája, amelyeket szeretnénk mindenképpen megvalósítani. Ezek a fejlesztés során még változhatnak.
