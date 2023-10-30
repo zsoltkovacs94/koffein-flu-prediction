@@ -378,6 +378,70 @@ A backend a felhasználói felületen beállítottak szerint jelzi az adatbázis
 
 ## Fizikai környezet
 
+A fizikai környezet részei a webes front-end, ami megjeleníti az adatokat, a python backed, ami biztosítja az adatbázis és az ML algoritmus elérését, az sql adatbázisok, amik az adatok tárolásáért és lekéréséért felelősek és a python ML algoritmus, ami új adatok generálására szolgál.
+
+### Webes felület
+
+A webes felület felelős az adatok megjelenítéséért a felhasználó számára, ezért fontos, hogy könnyen átlátható, könnyen kezelhető és bármilyen eszközről megjeleníthető legyen.
+
+#### Felépítés
+
+A webes felület felépítéséhez hagyományos módon HTML5-öt és CSS3-at használunk.
+
+#### Reszponzivitás
+
+A reszponzivitás megvalósításához bootstrap-et használunk, mivel a bootstrap egy elterjedt és jól bevált technológia.
+
+### Backend-program
+
+Összeköti a komponenseket.
+A weboldal backendjét Python nyelven írjuk, elsősorban az ML algoritmussal való egyszerű integrálhatóság kedvéért.
+
+### Adatbázis
+
+SQL adatbázisok felelősek az adatok tárolásáért.
+Minden tárolt adat lekérdezhető, generált adatok adatbázisához hozzá lehet adni, valamint el lehet belőle távolítani, a tanuló adatok adatbázisát nem lehet módosítani.
+
+#### Adatbázis-kezelő
+
+Egy Python program, ami felelős a lekérdezések elvégzéséért, valamint a generált adatok hozzáadásáért.
+
+Azért választottuk a Python nyelvet, hogy a többi komponenssel egyszerűen integrálható legyen.
+
+### ML Program
+
+Felelős múltbéli adatok alapján jövőbeli adatok generálásáért.
+
+Python nyelvben fog íródni, mivel a Python egy széleskörben használt és jól bevált eszköz hasonló feladatok megvalósításához.
+
+#### Felhasználandó programcsomagok
+
+- Tensorflow - Gépi tanulás
+- Keras - Gépi tanulás
+- Numpy - Szükséges adatszerekezetek
+- Pandas - Szükséges adatszerkezetek
+
+##### Tensorflow és Keras
+
+A tensorflow és keras gépi tanulásos problémák megoldásakor együttesen kerülnek felhasználásra.
+Szükségesek neurális hálók kiépítéséhez és a predikció elvégzéséhez.
+
+##### Numpy
+
+A numpy egy nagyon hasznos eszköz, ami megfelelő adatszerkezetet biztosít a gépi tanulás be- és kimenetének.
+Tartalmaz továbbá különböző hasznos matematikai függvényeket, amik segítik a hatékony modell elkészítését.
+
+##### Pandas
+
+A pandas egy tudományos eszköz, ami nagy mennyiségű adat egyszerű kezelését teszi lehetővé a dataframe adatszerkezetével,
+valamint adat analitikai eszközöket biztosít a tanuló adatok elemzéséhez és szűréséhez a megfelelő modell létrehozása érdekében.
+
+### A megvalósítandó alkalmazás
+
+A megvalósítandó alkalmazás egy webalkalmazás.
+Vagyis bármilyen webböngészővel rendelkező eszközről elérhető és használható.
+A reszponzivitás megvalósításával eszközmérettől függően változik a megjelenítés így tovább növelve az elérhetőségét.
+
 ## Absztrakt domain modell
 
 ### Domain specifikáció, fogalmak
