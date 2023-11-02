@@ -25,6 +25,33 @@ def pred_si(X):
 
 
 def prednext(pastIC, pastIO, pastSC, pastSI, next = 1):
+    if(pastIC.__class__ != np.ndarray):
+        print("pastIC is not ndarray")
+        return 0, 0, 0, 0
+    if(pastIO.__class__ != np.ndarray):
+        print("pastIO is not ndarray")
+        return 0, 0, 0, 0
+    if(pastSC.__class__ != np.ndarray):
+        print("pastSC is not ndarray")
+        return 0, 0, 0, 0
+    if(pastSI.__class__ != np.ndarray):
+        print("pastSI is not ndarray")
+        return 0, 0, 0, 0
+    if(pastIC.shape[1] != 8):
+        print("pastIC.shape is incorrect")
+        return 0, 0, 0, 0
+    if(pastIO.shape[1] != 8):
+        print("pastIO.shape is incorrect")
+        return 0, 0, 0, 0
+    if(pastSC.shape[1] != 8):
+        print("pastSC.shape is incorrect")
+        return 0, 0, 0, 0
+    if(pastSI.shape[1] != 8):
+        print("pastSI.shape is incorrect")
+        return 0, 0, 0, 0
+    if(next > 8):
+        next = 8
+        print("Warning the maximum value of next is 8")
     for i in range(0, next):
         nextIC = pred_ic(pastIC)[0, 0]
         nextIO = pred_io(pastIO)[0, 0]
@@ -48,4 +75,3 @@ def prednext(pastIC, pastIO, pastSC, pastSI, next = 1):
         pastSI = np.asarray([row])
 
     return pastIC, pastIO, pastSC, pastSI
-
