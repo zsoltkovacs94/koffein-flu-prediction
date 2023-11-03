@@ -598,16 +598,16 @@ Az alkalmazásnak szigorú adatvédelmi politikával kell rendelkeznie, és megf
 
 **Megjegyzés - Ez még nem a végleges tervünk az adattárolásra. Terveink az alkalmazás fejelsztése alatt változhatnak, és ezt ezen pont frissítésével jelezni fogjuk.**
 
-Terveink szerint az alkalmazásunk két fő adatbázist fog alkalmazni ahhoz, hogy megfelelően működjön minden:
+Terveink szerint az alkalmazásunk egy adatbázist fog alkalmazni ahhoz, hogy megfelelően működjön minden. Ehhez két külön táblára lesz szükségünk:
 
 - Tanuló adatok
 - Generált adatok
 
-Az adattárolás és adatbázisok összehangolása, karbantartása, a szerver futtatása mind a MySQL alkalmazással fog megvalósulni terveink szerint.
+Az adattárolás és adatbázisok összehangolása, karbantartása, a szerver futtatása mind a Django keretrendszer segítségével fog megvalósulni terveink szerint.
 
 ### A Tanuló adatok adatbázis felépítése
 
-Ez az adatbázis tartalmazza azokat az adatokat, amelyek a WHO hivatalos adatainak egy szűrt része (amelyek fontosak a mi általunk készített alkalmazás működéséhez). Ezen adatok a következők:
+Ez a tábla tartalmazza azokat az adatokat, amelyek a WHO hivatalos adatainak egy szűrt része (amelyek fontosak a mi általunk készített alkalmazás működéséhez). Ezen adatok a következők:
 
 - **ID** (int) - Az adatok azonosítója. Elsődleges kulcs, amely egyedi minden egyes adatsorhoz. Ezt az adatbázis generálja.
 - **WHOREGION** (varchar(10)) - A WHO régió neve. Nem lehet NULL érték.
@@ -621,9 +621,9 @@ Ez az adatbázis tartalmazza azokat az adatokat, amelyek a WHO hivatalos adatain
 
 ### A Generált adatok adatbázis felépítése
 
-Ez az adatbázis tartalmazza azokat az adatokat, amelyeket az általunk betanított modell fog generálni. Az adatbázis éppen ezért eleinte nem tartalmaz semmilyen adatot, csak akkor fog frissülni adatokkal, amint a felhasználó valamilyen lekérdezést hajtott végre.
+Ez a tábla tartalmazza azokat az adatokat, amelyeket az általunk betanított modell fog generálni. Az adattábla éppen ezért eleinte nem tartalmaz semmilyen adatot, csak akkor fog frissülni adatokkal, amint a felhasználó valamilyen lekérdezést hajtott végre.
 
-Az adatbázis felépítése ugyanaz, mint a Tanuló adatok adatbázisnak, viszont csak olyan adatok és adatoszlopok fognak megjelenni az alkalmazói oldalon, amit a felhasználó lekérdezett. Addig amíg ez nem történik meg, az adatbázis üres, de oszlopai a következők:
+Az adattábla felépítése ugyanaz, mint a Tanuló adatok táblának, viszont csak olyan adatok és adatoszlopok fognak megjelenni az alkalmazói oldalon, amit a felhasználó lekérdezett. Addig amíg ez nem történik meg, a tábla üres, de oszlopai a következők:
 
 - **ID** (int) - Az újonnan generált adatok azonosítója. Elsődleges kulcs, amely egyedi minden egyes adatsorhoz. Az adatbázis generálja minden egyes lekérdezés után.
 - **WHOREGION** (varchar(10)) - A WHO régió neve. Nem lehet NULL érték.
