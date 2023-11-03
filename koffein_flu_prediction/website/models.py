@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class lekert_adatok (models.Model):
+class lekert_adatok(models.Model):
     WHOREGION = models.CharField("WHOREGION", max_length=10)
     COUNTRY_AREA_TERRITORY = models.CharField("COUNTRY_AREA_TERRITORY", max_length=255)
     ISO_YEAR = models.IntegerField("ISO_YEAR")
