@@ -4,7 +4,7 @@ from django.urls import reverse
 from .static import tanuloPager
 
 def home(request):
-    return render(request, 'index.html', {})
+        return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
     return render(request, 'index.html', {})
