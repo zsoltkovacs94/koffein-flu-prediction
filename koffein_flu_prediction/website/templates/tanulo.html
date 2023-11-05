@@ -57,7 +57,13 @@
     
 </div>
 <div class="container">
-
+    <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="backMore" class="frissites"><<</button>
+    <button type="submit" name="back" class="frissites"><</button>
+    <button type="submit" name="forward" class="frissites">></button>
+    <button type="submit" name="forwardMore" class="frissites">>></button>
+    </form>
     <table class="table table-hover">
       <thead>
         <tr>
