@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from .models import lekert_adatok
 
 def home(request):
-    return render(request, 'index.html', {})
+    database = lekert_adatok.objects.all()[:1000]
+    return render(request, 'index.html', {'all': database})
 
 def gen(request):
     return render(request, 'index.html', {})
