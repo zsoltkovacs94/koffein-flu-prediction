@@ -8,7 +8,7 @@ def home(request):
     return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
-    #prediction_handler.predict("")
+    #prediction_handler.predict("VALAMI ORSZÁGNÉV")
     return render(request, 'index.html', {})
 
 def tan(request):
