@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .static import tanuloPager
+from .static import prediction_handler
 
 def home(request):
-        return HttpResponseRedirect(reverse("tan"))
+    return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
+    #prediction_handler.predict("")
     return render(request, 'index.html', {})
 
 def tan(request):

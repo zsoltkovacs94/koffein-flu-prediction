@@ -7,4 +7,11 @@
     <orderEntry type="jdk" jdkName="Python 3.9 (koffein-flu-prediction)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/models" />
+      </list>
+    </option>
+  </component>
 </module>
