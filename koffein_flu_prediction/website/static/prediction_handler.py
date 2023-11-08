@@ -29,33 +29,41 @@ def checkForPrevGen(WHOREGION, coarte, year, week):
         return 1
 
 def insert(WHOREGION, coarte, newIC, newIO, newSC, newSI, lastYear, lastWeek):
-    for i in range(0, 4):
+    skipped = 0
+    for i in range(1, 5):
         if((lastWeek+i) < 54):
             if(checkForPrevGen(WHOREGION, coarte,lastYear,lastWeek+i) == 1):
-                return
+                skipped += 1
+                continue
             generalt_adatok.objects.create(WHOREGION=WHOREGION,
                                            COUNTRY_AREA_TERRITORY=coarte,
                                            ISO_YEAR=lastYear,
                                            ISO_WEEK=(lastWeek + i),
-                                           ILI_CASE=newIC[i][0],
-                                           ILI_OUTPATIENTS=newIO[i][0],
-                                           SARI_CASE=newSC[i][0],
-                                           SARI_INPATIENTS=newSI[i][0]
+                                           ILI_CASE=newIC[i - 1][0],
+                                           ILI_OUTPATIENTS=newIO[i - 1][0],
+                                           SARI_CASE=newSC[i - 1][0],
+                                           SARI_INPATIENTS=newSI[i - 1][0]
                                            )
         else:
             if(checkForPrevGen(WHOREGION, coarte,lastYear+1,lastWeek+i-53) == 1):
-                return
+                skipped += 1
+                continue
             generalt_adatok.objects.create(WHOREGION=WHOREGION,
                                            COUNTRY_AREA_TERRITORY=coarte,
                                            ISO_YEAR=(lastYear + 1),
                                            ISO_WEEK=((lastWeek + i)-53),
-                                           ILI_CASE=newIC[i][0],
-                                           ILI_OUTPATIENTS=newIO[i][0],
-                                           SARI_CASE=newSC[i][0],
-                                           SARI_INPATIENTS=newSI[i][0]
+                                           ILI_CASE=newIC[i - 1][0],
+                                           ILI_OUTPATIENTS=newIO[i - 1][0],
+                                           SARI_CASE=newSC[i - 1][0],
+                                           SARI_INPATIENTS=newSI[i - 1][0]
                                            )
+    return skipped
 
 def predict(coarte):
-    country = lekert_adatok.objects.filter(COUNTRY_AREA_TERRITORY=coarte)[0]
+    country = lekert_adatok.objects.filter(COUNTRY_AREA_TERRITORY=coarte)
+    if not country:
+        return "Nem létező ország"
+    country = country[0]
     newIC, newIO, newSC, newSI, lastYear, lastWeek = getData(coarte)
-    insert(country.WHOREGION, coarte, newIC, newIO, newSC, newSI, lastYear, lastWeek)
+    skipped = insert(country.WHOREGION, coarte, newIC, newIO, newSC, newSI, lastYear, lastWeek)
+    return "Generálás sikeres " + skipped.__str__() + " insert átugorva"
