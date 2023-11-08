@@ -8,7 +8,7 @@ def home(request):
     return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
-    print(prediction_handler.predict("Central African Republic"))
+    #print(prediction_handler.predict("ORSZÁGNÉV"))
     return render(request, 'index.html', {})
 
 def tan(request):
