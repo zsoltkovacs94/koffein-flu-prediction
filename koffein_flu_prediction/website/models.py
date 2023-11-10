@@ -28,4 +28,3 @@ class generalt_adatok(models.Model):
     ILI_OUTPATIENTS = models.IntegerField("ILI_OUTPATIENTS", blank=True, null=True)
     SARI_CASE = models.IntegerField("SARI_CASE", blank=True, null=True)
     SARI_INPATIENTS = models.IntegerField("SARI_INPATIENTS", blank=True, null=True)
-
