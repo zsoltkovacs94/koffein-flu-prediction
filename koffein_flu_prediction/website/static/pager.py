@@ -1,18 +1,22 @@
 from ..models import lekert_adatok
-
 current = 0
+showndata = lekert_adatok.objects.none()
 
+
+def init(db):
+    global showndata, current
+    current = 0
+    showndata = db
 
 def show():
-    global current
-    osszesLekert = lekert_adatok.objects.order_by()[current:current+500]
-    return osszesLekert
+    global current, showndata
+    return showndata[current:current+500]
 
 
 def forward():
     global current
-    if ((current+500) >= lekert_adatok.objects.count()):
-        current = lekert_adatok.objects.count()-500
+    if ((current+500) >= showndata.count()):
+        current = showndata.count()-500
         return show()
     else:
         current += 500
@@ -21,8 +25,8 @@ def forward():
 
 def forwardMore():
     global current
-    if ((current+5000) >= lekert_adatok.objects.count()):
-        current = lekert_adatok.objects.count()-500
+    if ((current+5000) >= showndata.count()):
+        current = showndata.count()-500
         return show()
     else:
         current += 5000
