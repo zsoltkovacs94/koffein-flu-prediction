@@ -13,6 +13,11 @@ class lekert_adatok(models.Model):
     SARI_CASE = models.IntegerField("SARI_CASE", blank=True, null=True)
     SARI_INPATIENTS = models.IntegerField("SARI_INPATIENTS", blank=True, null=True)
 
+    """
+    ###Példa szűrt lekérés
+    def filterByWHOREGION(self, WHR = "AFR"):
+        return lekert_adatok.objects.filter(WHOREGION=WHR)
+    """
 
 class generalt_adatok(models.Model):
     WHOREGION = models.CharField("WHOREGION", max_length=10)
