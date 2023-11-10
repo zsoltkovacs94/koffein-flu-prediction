@@ -50,9 +50,19 @@ def filterByTime(isoYear, isoWeek):
     return filteredTime
 
 
+def filterByWHORegionAndYear(whoRegion, isoYear):
+    filteredWHOYear = lekert_adatok.objects.filter(WHOREGION=whoRegion, ISO_YEAR=isoYear)
+    return filteredWHOYear
+
+
 def filterByWHORegionAndTime(whoRegion, isoYear, isoWeek):
     filteredWHOTime = lekert_adatok.objects.filter(WHOREGION=whoRegion, ISO_YEAR=isoYear, ISO_WEEK=isoWeek)
     return filteredWHOTime
+
+
+def filterByCoarteAndYear(coarte, isoYear):
+    filteredCoarteYear = lekert_adatok.objects.filter(COUNTRY_AREA_TERRITORY=coarte, ISO_YEAR=isoYear)
+    return filteredCoarteYear
 
 
 def filterByCoarteAndTime(coarte, isoYear, isoWeek):
