@@ -11,7 +11,13 @@ def home(request):
 
 def gen(request):
     #print(prediction_handler.predict("ORSZÁGNÉV"))
-    return render(request, 'index.html', {})
+    database = generalt_adatok.objects.all()[:1000]
+    return render(request, 'index.html', {'current': database,
+                                           'region': generalt_adatok.objects.all().values('WHOREGION').distinct().order_by('WHOREGION'),
+                                           'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
+                                           'gencoarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
+                                           'date': datetime.now().strftime("%Y-%m-%d"),
+                                           'page': 0})
 
 def tan(request):
     if(pager.showndata.count() == 0):
