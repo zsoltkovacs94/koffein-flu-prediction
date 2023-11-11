@@ -36,8 +36,7 @@
 <div class="container" style="margin-bottom: 20px;">
   
     <div class="fejlec col-sm-8">
-      <p class="generaltadatok">Tanuló adatok</p>
-      <button class="frissites">Adatok Frissítése</button>
+          <p class="generaltadatok">Tanuló adatok</p>
 
    
     </div>
@@ -58,33 +57,52 @@
 </div>
 <div class="container">
     <form method="post">
-    {% csrf_token %}
-    <button type="submit" name="backMore" class="frissites"><<</button>
-    <button type="submit" name="back" class="frissites"><</button>
-    <!--Példa szűrés felület-->
-    <!--
-    <input type="text" name="WHOREGION" />
-    <button type="submit" name="filter" class="frissites">Filter</button>
-    -->
-    <button type="submit" name="forward" class="frissites">></button>
-    <button type="submit" name="forwardMore" class="frissites">>></button>
+        {% csrf_token %}
+        <!--Példa szűrés felület-->
+        <label for="WHOREGION">WHOREGION</label>
+        <select name="WHOREGION" id="WHOREGION">
+            <option value="Any">Any</option>
+            {% for item in region %}
+            <option value="{{ item.WHOREGION }}">{{ item.WHOREGION }}</option>
+            {% endfor %}
+        </select>
+        <label for="coarte">COUNTRY_AREA_TERRITORY</label>
+        <select name="coarte" id="coarte">
+            <option value="Any">Any</option>
+            {% for item in coarte %}
+            <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="startDate">Starting date</label>
+        <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="1996-01-01">
+        <label for="endDate">End date</label>
+        <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ date }}">
+        <button type="submit" name="filter" class="frissites">Szűrés</button>
+        <button type="submit" name="reset" class="frissites">Visszaállítás</button>
+        <br>
+        <button type="submit" name="backMore" class="frissites"><<</button>
+        <button type="submit" name="back" class="frissites"><</button>
+        <span>{{ page }}</span>
+        <button type="submit" name="forward" class="frissites">></button>
+        <button type="submit" name="forwardMore" class="frissites">>></button>
     </form>
     <table class="table table-hover">
-      <thead>
+        <thead>
+            <tr>
+                <th>WHOREGION</th>
+                <th>COUNTRY_AREA_TERRITORY</th>
+                <th>ISO_WEEK</th>
+                <th>ISO_YEAR</th>
+                <th>ILI_CASE</th>
+                <th>ILI_OUTPATIENTS</th>
+                <th>SARI_CASE</th>
+                <th>SARI_INPATIENTS </th>
+            </tr>
+    </thead>
+    <tbody>
+        {% for item in current %}
         <tr>
-          <th>WHOREGION</th>
-          <th>COUNTRY_AREA_TERRITORY</th>
-          <th>ISO_YEAR</th>
-          <th>ISO_WEEK</th>
-          <th>ILI_CASE</th>
-          <th>ILI_OUTPATIENTS</th>
-          <th>SARI_CASE</th>
-          <th>SARI_INPATIENTS </th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for item in all %}
-          <tr>
             <td>{{ item.WHOREGION }}</td>
             <td>{{ item.COUNTRY_AREA_TERRITORY }}</td>
             <td>{{ item.ISO_YEAR }}</td>
@@ -94,9 +112,8 @@
             <td>{{ item.SARI_CASE }}</td>
             <td>{{ item.SARI_INPATIENTS }}</td>
           </tr>
-      {% endfor %}
-       
-      </tbody>
+        {% endfor %}
+    </tbody>
     </table>
   </div>
 
