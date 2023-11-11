@@ -24,17 +24,32 @@ Válasszuk a virtual environmentet, fenti rádiógombok közül válasszuk a new
 
 Nyissuk meg a pycharm terminált (Alt+F12), majd adjuk ki az alábbi parancsot, a figyelmeztetéseket hagyjuk figyelmen kívül:
 
+```
 pip install django
+```
+```
+pip install numpy
+```
+```
+pip install pandas
+```
+```
+pip install tensorflow
+```
 
 ### Django oldal futtatása
 
 Nyissuk meg a Pycharm terminált (Alt+F12), ezután lépjünk be a projekt koffein_flu_prediction almappájába a terminálból.
 
+```
 cd .\koffein_flu_prediction\
+```
 
 Majd futtassuk a django oldalt az alábbi paranccsal:
 
+```
 python manage.py runserver 
+```
 
 A terminálban látható "Starting development server at..." kezdetű sorban található címen érhetjük el az oldalt.
 
