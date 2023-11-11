@@ -31,7 +31,10 @@ class lekert_adatok(models.Model):
         f1 = Q(ISO_YEAR=sYear)
         f2 = Q(ISO_WEEK__gte=sWeek)
         f3 = Q(ISO_YEAR__gt=sYear)
-        return data.filter((f1 & f2) | f3).order_by("ISO_WEEK").order_by("ISO_YEAR")
+        f4 = Q(ISO_YEAR=eYear)
+        f5 = Q(ISO_WEEK__lte=eWeek)
+        f6 = Q(ISO_YEAR__lt=eYear)
+        return data.filter((f1 & f2) | f3).filter((f4 & f5) | f6).order_by("ISO_WEEK").order_by("ISO_YEAR")
 
 class generalt_adatok(models.Model):
     WHOREGION = models.CharField("WHOREGION", max_length=10)
@@ -58,4 +61,7 @@ class generalt_adatok(models.Model):
         f1 = Q(ISO_YEAR=sYear)
         f2 = Q(ISO_WEEK__gte=sWeek)
         f3 = Q(ISO_YEAR__gt=sYear)
-        return data.filter((f1 & f2) | f3).order_by("ISO_WEEK").order_by("ISO_YEAR")
+        f4 = Q(ISO_YEAR=eYear)
+        f5 = Q(ISO_WEEK__lte=eWeek)
+        f6 = Q(ISO_YEAR__lt=eYear)
+        return data.filter((f1 & f2) | f3).filter((f4 & f5) | f6).order_by("ISO_WEEK").order_by("ISO_YEAR")
