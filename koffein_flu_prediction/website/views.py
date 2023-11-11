@@ -17,7 +17,8 @@ def gen(request):
                                            'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
                                            'gencoarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
                                            'date': datetime.now().strftime("%Y-%m-%d"),
-                                           'page': 0})
+                                           'page': 0,
+                                           'maxpage': 0})
 
 def tan(request):
     if(pager.showndata.count() == 0):
@@ -52,4 +53,5 @@ def tan(request):
                                            'region': lekert_adatok.objects.all().values('WHOREGION').distinct().order_by('WHOREGION'),
                                            'coarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
                                            'date': datetime.now().strftime("%Y-%m-%d"),
-                                           'page': pager.getPage()})
+                                           'page': pager.getPage(),
+                                           'maxpage': pager.getMaxPage()})

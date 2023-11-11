@@ -19,7 +19,6 @@ def show():
 def forward():
     global current
     if ((current+onPage) >= showndata.count()):
-        current = showndata.count()-onPage
         return show()
     else:
         current += onPage
@@ -29,7 +28,6 @@ def forward():
 def forwardMore():
     global current
     if ((current+(onPage * 10)) >= showndata.count()):
-        current = showndata.count()-onPage
         return show()
     else:
         current += (onPage * 10)
@@ -58,3 +56,7 @@ def backMore():
 
 def getPage():
     return int(current/onPage) + 1
+
+
+def getMaxPage():
+    return int(showndata.count() / onPage) + 1
