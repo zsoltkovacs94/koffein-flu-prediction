@@ -14,7 +14,6 @@ def gen(request):
     if request.method == 'POST' and 'generate' in request.POST:
         genmessage = prediction_handler.predict(request.POST.get('gencoarte'))
     database = generalt_adatok.objects.all()
-    print(database)
     return render(request, 'index.html', {'current': database,
                                           'region': generalt_adatok.objects.all().values('WHOREGION').distinct().order_by('WHOREGION'),
                                           'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),

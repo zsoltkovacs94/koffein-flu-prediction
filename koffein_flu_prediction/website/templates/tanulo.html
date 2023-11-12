@@ -59,6 +59,8 @@
     <form method="post">
         {% csrf_token %}
         <!--Példa szűrés felület-->
+        <div class="doboz">
+            <h3>Szűrés</h3>
         <label for="WHOREGION">WHOREGION</label>
         <select name="WHOREGION" id="WHOREGION">
             <option value="Any">Any</option>
@@ -80,7 +82,7 @@
         <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ date }}">
         <button type="submit" name="filter" class="frissites">Szűrés</button>
         <button type="submit" name="reset" class="frissites">Visszaállítás</button>
-        <br>
+        </div>
         <button type="submit" name="backMore" class="frissites"><<</button>
         <button type="submit" name="back" class="frissites"><</button>
         <span>{{ page }}/{{ maxpage }}</span>

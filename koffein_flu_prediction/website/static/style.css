@@ -1,4 +1,7 @@
-
+.doboz{
+    border: 2px solid rgb(130, 176, 175);
+    padding: 10px;
+}
 .navbar{
     background-color: rgb(130, 176, 175);
     color: white;
