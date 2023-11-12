@@ -10,15 +10,19 @@ def home(request):
     return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
-    #print(prediction_handler.predict("ORSZÁGNÉV"))
-    database = generalt_adatok.objects.all()[:1000]
+    genmessage = ''
+    if request.method == 'POST' and 'generate' in request.POST:
+        genmessage = prediction_handler.predict(request.POST.get('gencoarte'))
+    database = generalt_adatok.objects.all()
+    print(database)
     return render(request, 'index.html', {'current': database,
-                                           'region': generalt_adatok.objects.all().values('WHOREGION').distinct().order_by('WHOREGION'),
-                                           'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
-                                           'gencoarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
-                                           'date': datetime.now().strftime("%Y-%m-%d"),
-                                           'page': 0,
-                                           'maxpage': 0})
+                                          'region': generalt_adatok.objects.all().values('WHOREGION').distinct().order_by('WHOREGION'),
+                                          'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
+                                          'gencoarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
+                                          'date': datetime.now().strftime("%Y-%m-%d"),
+                                          'page': 0,
+                                          'maxpage': 0,
+                                          'genmessage': genmessage})
 
 def tan(request):
     if(pager.showndata.count() == 0):
