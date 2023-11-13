@@ -1,5 +1,5 @@
 import numpy
-
+import datetime
 from ..models import lekert_adatok
 from ..models import generalt_adatok
 from ..static import predictor
@@ -31,7 +31,8 @@ def checkForPrevGen(WHOREGION, coarte, year, week):
 def insert(WHOREGION, coarte, newIC, newIO, newSC, newSI, lastYear, lastWeek):
     skipped = 0
     for i in range(1, 5):
-        if((lastWeek+i) < 54):
+        numberOfWeeks = datetime.date(lastYear, 12, 31).isocalendar().week
+        if((lastWeek+i) <= numberOfWeeks):
             if(checkForPrevGen(WHOREGION, coarte,lastYear,lastWeek+i) == 1):
                 skipped += 1
                 continue
@@ -45,13 +46,13 @@ def insert(WHOREGION, coarte, newIC, newIO, newSC, newSI, lastYear, lastWeek):
                                            SARI_INPATIENTS=newSI[i - 1][0]
                                            )
         else:
-            if(checkForPrevGen(WHOREGION, coarte,lastYear+1,lastWeek+i-53) == 1):
+            if(checkForPrevGen(WHOREGION, coarte,lastYear+1,lastWeek+i-numberOfWeeks) == 1):
                 skipped += 1
                 continue
             generalt_adatok.objects.create(WHOREGION=WHOREGION,
                                            COUNTRY_AREA_TERRITORY=coarte,
                                            ISO_YEAR=(lastYear + 1),
-                                           ISO_WEEK=((lastWeek + i)-53),
+                                           ISO_WEEK=((lastWeek + i)-numberOfWeeks),
                                            ILI_CASE=newIC[i - 1][0],
                                            ILI_OUTPATIENTS=newIO[i - 1][0],
                                            SARI_CASE=newSC[i - 1][0],
