@@ -18,6 +18,12 @@ def gen(request):
     if request.method == 'POST' and 'backMore' in request.POST:
         pager.backMore()
         return HttpResponseRedirect(reverse("gen"))
+    if request.method == 'POST' and 'forward' in request.POST:
+        pager.forward()
+        return HttpResponseRedirect(reverse("gen"))
+    if request.method == 'POST' and 'forwardMore' in request.POST:
+        pager.forwardMore()
+        return HttpResponseRedirect(reverse("gen"))
 
 
     genmessage = ''
