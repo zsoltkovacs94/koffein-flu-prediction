@@ -23,10 +23,10 @@ class lekert_adatok(models.Model):
         if(coarte != "Any"):
             data = data.filter(COUNTRY_AREA_TERRITORY=coarte)
         sDate = datetime.strptime(startDate, '%Y-%m-%d')
-        sYear = int(sDate.year)
+        sYear = sDate.isocalendar().year
         sWeek = sDate.isocalendar().week
         eDate = datetime.strptime(endDate, '%Y-%m-%d')
-        eYear = eDate.year
+        eYear = eDate.isocalendar().year
         eWeek = eDate.isocalendar().week
         f1 = Q(ISO_YEAR=sYear)
         f2 = Q(ISO_WEEK__gte=sWeek)
@@ -53,10 +53,10 @@ class generalt_adatok(models.Model):
         if(coarte != "Any"):
             data = data.filter(COUNTRY_AREA_TERRITORY=coarte)
         sDate = datetime.strptime(startDate, '%Y-%m-%d')
-        sYear = int(sDate.year)
+        sYear = sDate.isocalendar().year
         sWeek = sDate.isocalendar().week
         eDate = datetime.strptime(endDate, '%Y-%m-%d')
-        eYear = eDate.year
+        eYear = eDate.isocalendar().year
         eWeek = eDate.isocalendar().week
         f1 = Q(ISO_YEAR=sYear)
         f2 = Q(ISO_WEEK__gte=sWeek)
@@ -64,4 +64,7 @@ class generalt_adatok(models.Model):
         f4 = Q(ISO_YEAR=eYear)
         f5 = Q(ISO_WEEK__lte=eWeek)
         f6 = Q(ISO_YEAR__lt=eYear)
+        print(sDate)
+        print(sYear)
+        print(sWeek)
         return data.filter((f1 & f2) | f3).filter((f4 & f5) | f6).order_by("ISO_WEEK").order_by("ISO_YEAR")
