@@ -10,6 +10,12 @@ def home(request):
     return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
+    if (pager.showndata.count() == 0):
+        pager.init(generalt_adatok.objects.all())
+    if request.method == 'POST' and 'back' in request.POST:
+        pager.back()
+        return HttpResponseRedirect(reverse("gen"))
+
     genmessage = ''
     if request.method == 'POST' and 'generate' in request.POST:
         genmessage = prediction_handler.predict(request.POST.get('gencoarte'))
@@ -19,8 +25,8 @@ def gen(request):
                                           'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
                                           'gencoarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
                                           'date': datetime.now().strftime("%Y-%m-%d"),
-                                          'page': 0,
-                                          'maxpage': 0,
+                                          'page': pager.getPage(),
+                                          'maxpage': pager.getMaxPage(),
                                           'genmessage': genmessage})
 
 def tan(request):
