@@ -83,7 +83,6 @@
             <h3>Generálás</h3>
             <label for="gencoarte">COUNTRY_AREA_TERRITORY</label>
             <select name="gencoarte" id="gencoarte">
-                <option value="Any">Any</option>
                 {% for item in gencoarte %}
                 <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
                 {% endfor %}
