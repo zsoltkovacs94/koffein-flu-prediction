@@ -2,12 +2,14 @@ from ..models import lekert_adatok
 current = 0
 onPage = 100
 showndata = lekert_adatok.objects.none()
+generalt = False
 
 
-def init(db):
-    global showndata, current
+def init(db, gen=False):
+    global showndata, current, generalt
     current = 0
     showndata = db
+    generalt = gen
 
 def show():
     global current, showndata
@@ -60,3 +62,7 @@ def getPage():
 
 def getMaxPage():
     return int(showndata.count() / onPage) + 1
+
+
+def isGen():
+    return generalt
