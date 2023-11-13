@@ -1,3 +1,4 @@
+from dateutil.relativedelta import relativedelta
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -10,8 +11,8 @@ def home(request):
     return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
-    if (pager.showndata.count() == 0):
-        pager.init(generalt_adatok.objects.all())
+    if (pager.showndata.count() == 0 or not pager.isGen()):
+        pager.init(generalt_adatok.objects.all(), True)
     if request.method == 'POST' and 'back' in request.POST:
         pager.back()
         return HttpResponseRedirect(reverse("gen"))
@@ -24,24 +25,32 @@ def gen(request):
     if request.method == 'POST' and 'forwardMore' in request.POST:
         pager.forwardMore()
         return HttpResponseRedirect(reverse("gen"))
-
-
+    if request.method == 'POST' and 'filter' in request.POST:
+        pager.init(generalt_adatok.genFilter(generalt_adatok,
+                                           request.POST.get('WHOREGION'),
+                                           request.POST.get('coarte'),
+                                           request.POST.get('startDate'),
+                                           request.POST.get('endDate')), True)
+    if request.method == 'POST' and 'reset' in request.POST:
+        pager.init(generalt_adatok.objects.all(), False)
+        return HttpResponseRedirect(reverse("gen"))
     genmessage = ''
     if request.method == 'POST' and 'generate' in request.POST:
         genmessage = prediction_handler.predict(request.POST.get('gencoarte'))
-    database = generalt_adatok.objects.all()
+        database = pager.init(generalt_adatok.objects.all(), True)
+    database = pager.show()
     return render(request, 'index.html', {'current': database,
                                           'region': generalt_adatok.objects.all().values('WHOREGION').distinct().order_by('WHOREGION'),
                                           'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
                                           'gencoarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
-                                          'date': datetime.now().strftime("%Y-%m-%d"),
+                                          'date': (datetime.now() + relativedelta(months=1, days=14)).strftime("%Y-%m-%d"),
                                           'page': pager.getPage(),
                                           'maxpage': pager.getMaxPage(),
                                           'genmessage': genmessage})
 
 def tan(request):
-    if(pager.showndata.count() == 0):
-        pager.init(lekert_adatok.objects.all())
+    if(pager.showndata.count() == 0 or pager.isGen()):
+        pager.init(lekert_adatok.objects.all(), False)
     if request.method == 'POST' and 'back' in request.POST:
         pager.back()
         return HttpResponseRedirect(reverse("tan"))
@@ -55,7 +64,7 @@ def tan(request):
         pager.forwardMore()
         return HttpResponseRedirect(reverse("tan"))
     if request.method == 'POST' and 'reset' in request.POST:
-        pager.init(lekert_adatok.objects.all())
+        pager.init(lekert_adatok.objects.all(), False)
         return HttpResponseRedirect(reverse("tan"))
 
     #Példa POST szűrés kezelés
@@ -64,7 +73,7 @@ def tan(request):
                                            request.POST.get('WHOREGION'),
                                            request.POST.get('coarte'),
                                            request.POST.get('startDate'),
-                                           request.POST.get('endDate')))
+                                           request.POST.get('endDate')), False)
 
     database = pager.show()
     #database = lekert_adatok.objects.all()[:1000]
