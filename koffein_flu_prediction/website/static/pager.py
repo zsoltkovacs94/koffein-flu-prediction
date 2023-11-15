@@ -71,9 +71,13 @@ def isGen():
 
 
 def setOnPage(ps):
+    if not ps.isnumeric():
+        return
+    ps = int(ps)
+    if ps <= 0:
+        return
     global onPage
-    onPage = int(ps)
-    print(onPage)
+    onPage = ps
 
 
 def getOnPage():

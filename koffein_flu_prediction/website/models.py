@@ -22,10 +22,16 @@ class lekert_adatok(models.Model):
             data = data.filter(WHOREGION=WHR)
         if(coarte != "Any"):
             data = data.filter(COUNTRY_AREA_TERRITORY=coarte)
-        sDate = datetime.strptime(startDate, '%Y-%m-%d')
+        try:
+            sDate = datetime.strptime(startDate, '%Y-%m-%d')
+        except ValueError:
+            return generalt_adatok.objects.none()
         sYear = sDate.isocalendar().year
         sWeek = sDate.isocalendar().week
-        eDate = datetime.strptime(endDate, '%Y-%m-%d')
+        try:
+            eDate = datetime.strptime(endDate, '%Y-%m-%d')
+        except ValueError:
+            return generalt_adatok.objects.none()
         eYear = eDate.isocalendar().year
         eWeek = eDate.isocalendar().week
         f1 = Q(ISO_YEAR=sYear)
@@ -52,10 +58,16 @@ class generalt_adatok(models.Model):
             data = data.filter(WHOREGION=WHR)
         if(coarte != "Any"):
             data = data.filter(COUNTRY_AREA_TERRITORY=coarte)
-        sDate = datetime.strptime(startDate, '%Y-%m-%d')
+        try:
+            sDate = datetime.strptime(startDate, '%Y-%m-%d')
+        except ValueError:
+            return generalt_adatok.objects.none()
         sYear = sDate.isocalendar().year
         sWeek = sDate.isocalendar().week
-        eDate = datetime.strptime(endDate, '%Y-%m-%d')
+        try:
+            eDate = datetime.strptime(endDate, '%Y-%m-%d')
+        except ValueError:
+            return generalt_adatok.objects.none()
         eYear = eDate.isocalendar().year
         eWeek = eDate.isocalendar().week
         f1 = Q(ISO_YEAR=sYear)
