@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Koffein flu prediction</a>
+                <a href="{% url 'index' %}" class="navbar-brand" href="">Koffein flu prediction</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -36,133 +36,71 @@
 <div class="container" style="margin-bottom: 20px;">
 
     <div class=" fejlec col-sm-8">
-        <p class="generaltadatok">Generált adatok</p>
+        <p class="generaltadatok">Koffein flu prediction</p>
     </div>
     <div class="searc col-sm-4">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="search">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-        </div>
+
     </div>
 
 
 </div>
 <div class="container">
-    <form method="post">
-        {% csrf_token %}
-        <!--Példa szűrés felület-->
-        <div class="doboz">
-            <h3>Szűrés</h3>
-            <label for="WHOREGION">WHOREGION</label>
-            <select name="WHOREGION" id="WHOREGION">
-                <option value="Any">Nincs megadva</option>
-                {% for item in region %}
-                {% if szures.0 == item.WHOREGION %}
-                <option value="{{ item.WHOREGION }}" selected>{{ item.WHOREGION }}</option>
-                {% else %}
-                <option value="{{ item.WHOREGION }}">{{ item.WHOREGION }}</option>
-                {% endif %}
-                {% endfor %}
-            </select>
-            <label for="coarte">COUNTRY_AREA_TERRITORY</label>
-            <select name="coarte" id="coarte" value="{{ szures.1 }}">
-                <option value="Any">Nincs megadva</option>
-                {% for item in coarte %}
-                {% if szures.1 == item.COUNTRY_AREA_TERRITORY %}
-                <option value="{{ item.COUNTRY_AREA_TERRITORY }}" selected>{{ item.COUNTRY_AREA_TERRITORY }}</option>
-                {% else %}
-                <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
-                {% endif %}
-                {% endfor %}
-            </select>
-            <br>
-            <label for="startDate">Kezdő dátum</label>
-            <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="{{ szures.2 }}">
-            <label for="endDate">Utolsó dátum</label>
-            <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ szures.3 }}">
-            <button type="submit" name="filter" class="frissites">Szűrés</button>
-            <button type="submit" name="reset" class="frissites">Visszaállítás</button>
-        </div>
-        <div class="doboz">
-            <h3>Generálás</h3>
-            <label for="gencoarte">COUNTRY_AREA_TERRITORY</label>
-            <select name="gencoarte" id="gencoarte">
-                {% for item in gencoarte %}
-                <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
-                {% endfor %}
-            </select>
-            <button type="submit" name="generate" class="frissites">Generálás</button>
-            <br>
-            {% if genmessage != '' %}
-            <p>{{ genmessage }}</p>
-            <br>
-            {% endif %}
-        </div>
-        <button type="submit" name="backMore" class="frissites"><<</button>
-        <button type="submit" name="back" class="frissites"><</button>
-        <span>{{ page }}/{{ maxpage }}</span>
-        <button type="submit" name="forward" class="frissites">></button>
-        <button type="submit" name="forwardMore" class="frissites">>></button>
-    </form>
-    <form method="post">
-        {% csrf_token %}
-        <label for="setps">Adat/Oldal</label>
-        <select id='setps' name='setps' onchange='{this.form.submit()}'>
-            {% if ps == 25 %}
-            <option value='25' selected>25</option>
-            {% else %}
-            <option value='25'>25</option>
-            {% endif %}
-            {% if ps == 50 %}
-            <option value='50' selected>50</option>
-            {% else %}
-            <option value='50'>50</option>
-            {% endif %}
-            {% if ps == 100 %}
-            <option value='100' selected>100</option>
-            {% else %}
-            <option value='100'>100</option>
-            {% endif %}
-            {% if ps == 250 %}
-            <option value='250' selected>250</option>
-            {% else %}
-            <option value='250'>250</option>
-            {% endif %}
-        </select>
-    </form>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>WHOREGION</th>
-            <th>COUNTRY_AREA_TERRITORY</th>
-            <th>ISO_YEAR</th>
-            <th>ISO_WEEK</th>
-            <th>ILI_CASE</th>
-            <th>ILI_OUTPATIENTS</th>
-            <th>SARI_CASE</th>
-            <th>SARI_INPATIENTS</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for item in current %}
-        <tr>
-            <td>{{ item.WHOREGION }}</td>
-            <td>{{ item.COUNTRY_AREA_TERRITORY }}</td>
-            <td>{{ item.ISO_YEAR }}</td>
-            <td>{{ item.ISO_WEEK }}</td>
-            <td>{{ item.ILI_CASE }}</td>
-            <td>{{ item.ILI_OUTPATIENTS }}</td>
-            <td>{{ item.SARI_CASE }}</td>
-            <td>{{ item.SARI_INPATIENTS }}</td>
-        </tr>
-        {% endfor %}
+<div class="doboz">
+    <h4>A web applikáció célja a covid és influenzában lebetegedett emberek számának lekérdezése Az alkalmazás Webes felülettel rendelkezik, amely minden eszközön és böngészőn kiválóan működik.
+        A felületen lehetőségük van a felhasználóknak országokra és régiókra szűrni. A korábbi adatokat egy meglévő adatbázisból kérdezzük le és használjuk fel, ezáltal adatok mindig napra készen.
+        A becsült jövőbeli adatokat ebből az adatbázis adataiból számítjuk ki.</h4>
 
-        </tbody>
-    </table>
+<h2>Tanuló adatok oldal</h2>
+<p>A tanuló adatok oldal a WHO hivatalos adatait tartalmazza.<br>
+    A megjelenített adatok dinamikusan, mindig az adatbázis jelenlegi állapotát tükrözik.<br>
+    A tanuló adatbázis statikus, az adatokat sem a felhasználó, sem egyéb programok nem változtathatják a feltöltés után csakis lekérdezések végezhetők.<br>
+    A táblázat  fejlécének magyarázata:<br>
+    <ul>
+    <li>WHOREGION - WHO régió neve</li>
+    <li>COUNTRY_AREA_TERRITORY - Az adott ország neve</li>
+    <li>ISO_YEAR - A mérés éve</li>
+    <li>ISO_WEEK - Az év hete, amikor a mérés történt</li>
+    <li>ILI_CASE - Influenzagyanús betegek száma</li>
+    <li>ILI_OUTPATIENTS - Influenzás járóbetegek száma</li>
+    <li>SARI_CASE - Súlyos léguti megbetegedésgyanús betegek száma</li>
+    <li>SARI_INPATIENTS - Súlyos léguti megbetegedéses fekvőbetegek száma</li>
+
+</ul>
+<h2>Generált adatok oldal</h2>
+    <p>A megjelenített adatok dinamukisak, mindig az adatbázis jelenlegi állapotát tükrözik.<br>
+        Ezen a lapon megtekinthetők a korábban generált adatok.<br>
+        Új adatok generáltatása esetén az adatok bekerülnek a generált adatok adatbázisába, majd megjelenítésre kerülnek.<br>
+        <h3>A tanulás menete</h3>
+    <p>A modell betanítása úgy zajlik, hogy az egész tanuló adatbázison tanul, majd a tanuló adatbázis felét inputul kapva meg kell határoznia a tanuló adatbázis másik feléhez az ILI_CASE, ILI_OUTPATIENTS, SARI_CASE és SARI_INPATIENTS adatoszlopok. Ha ennek a hibamértéke 10% alatti, akkor sikeres a tanítás.<br>
+ A prediktáló program egy python program, ami a tanuló adatbázis megfelelő részein végez tanulást és predikciót.<br>
+        A prediktáló program egy tanuló adatbázis lekérdezéssel kap tanuló adatot, majd a predikció után a generált adatokat feltölti a prediktált adatok adatbázisába.<br>
+        A prediktáló program a dátum, az ILI gyanús esetek száma, az ILI járóbetegek száma, a SARI gyanús esetek száma és a SARI fekvőbetegek száma alapján tanul és megadott jövőbeli időpontokra ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek és SARI fekvőbetegek számát generál.
+   Tanulás menete
+
+    </p>
+
+
+
+
+
+
+
+    <p>A táblázat fejlécének magyarázata:
+       <ul>
+    <li>WHOREGION - WHO régió neve</li>
+    <li>COUNTRY_AREA_TERRITORY - Az adott ország neve</li>
+    <li>ISO_YEAR - A mérés éve</li>
+    <li>ISO_WEEK - Az év hete, amikor a mérés történt</li>
+    <li>ILI_CASE - Influenzagyanús betegek száma</li>
+    <li>ILI_OUTPATIENTS - Influenzás járóbetegek száma</li>
+    <li>SARI_CASE - Súlyos léguti megbetegedésgyanús betegek száma</li>
+    <li>SARI_INPATIENTS - Súlyos léguti megbetegedéses fekvőbetegek száma</li>
+
+</ul>
+
+</p>
 </div>
+    </div>
+
 </body>
 </html>
