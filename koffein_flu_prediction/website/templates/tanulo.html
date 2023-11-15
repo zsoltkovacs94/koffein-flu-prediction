@@ -64,22 +64,30 @@
         <label for="WHOREGION">WHOREGION</label>
         <select name="WHOREGION" id="WHOREGION">
             <option value="Any">Any</option>
-            {% for item in region %}
-            <option value="{{ item.WHOREGION }}">{{ item.WHOREGION }}</option>
-            {% endfor %}
+                {% for item in region %}
+                {% if szures.0 == item.WHOREGION %}
+                <option value="{{ item.WHOREGION }}" selected>{{ item.WHOREGION }}</option>
+                {% else %}
+                <option value="{{ item.WHOREGION }}">{{ item.WHOREGION }}</option>
+                {% endif %}
+                {% endfor %}
         </select>
         <label for="coarte">COUNTRY_AREA_TERRITORY</label>
         <select name="coarte" id="coarte">
             <option value="Any">Any</option>
-            {% for item in coarte %}
-            <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
-            {% endfor %}
+                {% for item in coarte %}
+                {% if szures.1 == item.COUNTRY_AREA_TERRITORY %}
+                <option value="{{ item.COUNTRY_AREA_TERRITORY }}" selected>{{ item.COUNTRY_AREA_TERRITORY }}</option>
+                {% else %}
+                <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
+                {% endif %}
+                {% endfor %}
         </select>
         <br>
         <label for="startDate">Starting date</label>
-        <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="1996-01-01">
+        <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="{{ szures.2 }}">
         <label for="endDate">End date</label>
-        <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ date }}">
+        <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ szures.3 }}">
         <button type="submit" name="filter" class="frissites">Szűrés</button>
         <button type="submit" name="reset" class="frissites">Visszaállítás</button>
         </div>

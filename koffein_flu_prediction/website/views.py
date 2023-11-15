@@ -11,6 +11,7 @@ def home(request):
     return HttpResponseRedirect(reverse("tan"))
 
 def gen(request):
+    szures = ['', '', '1996-01-01', (datetime.now() + relativedelta(months=1, days=14)).strftime("%Y-%m-%d")]
     if (pager.showndata.count() == 0 or not pager.isGen()):
         pager.init(generalt_adatok.objects.all(), True)
     if request.method == 'POST' and 'back' in request.POST:
@@ -31,6 +32,7 @@ def gen(request):
                                            request.POST.get('coarte'),
                                            request.POST.get('startDate'),
                                            request.POST.get('endDate')), True)
+        szures = [request.POST.get('WHOREGION'), request.POST.get('coarte'), request.POST.get('startDate'),  request.POST.get('endDate')]
     if request.method == 'POST' and 'reset' in request.POST:
         pager.init(generalt_adatok.objects.all(), False)
         return HttpResponseRedirect(reverse("gen"))
@@ -39,6 +41,7 @@ def gen(request):
         genmessage = prediction_handler.predict(request.POST.get('gencoarte'))
         database = pager.init(generalt_adatok.objects.all(), True)
     database = pager.show()
+    print(szures)
     return render(request, 'index.html', {'current': database,
                                           'region': generalt_adatok.objects.all().values('WHOREGION').distinct().order_by('WHOREGION'),
                                           'coarte': generalt_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
@@ -46,9 +49,11 @@ def gen(request):
                                           'date': (datetime.now() + relativedelta(months=1, days=14)).strftime("%Y-%m-%d"),
                                           'page': pager.getPage(),
                                           'maxpage': pager.getMaxPage(),
-                                          'genmessage': genmessage})
+                                          'genmessage': genmessage,
+                                          'szures': szures})
 
 def tan(request):
+    szures = ['', '', '1996-01-01', datetime.now().strftime("%Y-%m-%d")]
     if(pager.showndata.count() == 0 or pager.isGen()):
         pager.init(lekert_adatok.objects.all(), False)
     if request.method == 'POST' and 'back' in request.POST:
@@ -74,6 +79,7 @@ def tan(request):
                                            request.POST.get('coarte'),
                                            request.POST.get('startDate'),
                                            request.POST.get('endDate')), False)
+        szures = [request.POST.get('WHOREGION'), request.POST.get('coarte'), request.POST.get('startDate'),  request.POST.get('endDate')]
 
     database = pager.show()
     #database = lekert_adatok.objects.all()[:1000]
@@ -82,4 +88,5 @@ def tan(request):
                                            'coarte': lekert_adatok.objects.all().values('COUNTRY_AREA_TERRITORY').distinct().order_by('COUNTRY_AREA_TERRITORY'),
                                            'date': datetime.now().strftime("%Y-%m-%d"),
                                            'page': pager.getPage(),
-                                           'maxpage': pager.getMaxPage()})
+                                           'maxpage': pager.getMaxPage(),
+                                          'szures': szures})
