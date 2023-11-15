@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <title>Koffein Flu Prediction</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body >
+<div class="body">
+
+<div class="">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="{% url 'index' %}" class="navbar-brand" href="">Koffein flu prediction</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'gen' %}">Generált adarok</a></li>
+                    <li><a href="{% url 'tan' %}">Tanuló adatok</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container" style="margin-bottom: 20px;">
+
+    <div class=" fejlec col-sm-8">
+        <p class="generaltadatok">Generált adatok</p>
+    </div>
+    <div class="searc col-sm-4">
+
+    </div>
+
+
+</div>
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <!--Példa szűrés felület-->
+        <div class="doboz">
+            <h3>Szűrés</h3>
+            <label for="WHOREGION">WHO Régioó</label>
+            <select name="WHOREGION" id="WHOREGION">
+                <option value="Any">Bármi</option>
+                {% for item in region %}
+                <option value="{{ item.WHOREGION }}">{{ item.WHOREGION }}</option>
+                {% endfor %}
+            </select>
+            <label for="coarte">Ország területei</label>
+            <select name="coarte" id="coarte">
+                <option value="Any">Any</option>
+                {% for item in coarte %}
+                <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="startDate">Kezdő dátum</label>
+            <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="1996-01-01">
+            <label for="endDate">Végső dátum</label>
+            <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ date }}">
+            <button type="submit" name="filter" class="frissites">Szűrés</button>
+            <button type="submit" name="reset" class="frissites">Visszaállítás</button>
+        </div>
+        <div class="doboz">
+            <h3>Generálás</h3>
+            <label for="gencoarte">COUNTRY_AREA_TERRITORY</label>
+            <select name="gencoarte" id="gencoarte">
+                {% for item in gencoarte %}
+                <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" name="generate" class="frissites">Generálás</button>
+            <br>
+            {% if genmessage != '' %}
+            <p>{{ genmessage }}</p>
+            <br>
+            {% endif %}
+        </div>
+    </form>
+      <div class=" fejlec col-sm-8">
+       <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="backMore" class="nyil"><<</button>
+        <button type="submit" name="back" class="nyil"><</button>
+        <span>{{ page }}/{{ maxpage }}</span>
+        <button type="submit" name="forward" class="nyil">></button>
+        <button type="submit" name="forwardMore" class="nyil">>></button>
+     </form>
+    </div>
+
+    <div class="searc col-sm-4">
+<form method="post">
+        {% csrf_token %}
+        <label for="setps">Adat/Oldal</label>
+        <select id='setps' name='setps' onchange='{this.form.submit()}'>
+            {% if ps == 25 %}
+            <option value='25' selected>25</option>
+            {% else %}
+            <option value='25'>25</option>
+            {% endif %}
+            {% if ps == 50 %}
+            <option value='50' selected>50</option>
+            {% else %}
+            <option value='50'>50</option>
+            {% endif %}
+            {% if ps == 100 %}
+            <option value='100' selected>100</option>
+            {% else %}
+            <option value='100'>100</option>
+            {% endif %}
+            {% if ps == 250 %}
+            <option value='250' selected>250</option>
+            {% else %}
+            <option value='250'>250</option>
+            {% endif %}
+        </select>
+    </form>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr class="table-head">
+            <th>WHOREGION</th>
+            <th>COUNTRY_AREA_TERRITORY</th>
+            <th>ISO_YEAR</th>
+            <th>ISO_WEEK</th>
+            <th>ILI_CASE</th>
+            <th>ILI_OUTPATIENTS</th>
+            <th>SARI_CASE</th>
+            <th>SARI_INPATIENTS</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in current %}
+        <tr class="table-rows">
+            <td class="table-row">{{ item.WHOREGION }}</td>
+            <td class="table-row">{{ item.COUNTRY_AREA_TERRITORY }}</td>
+            <td class="table-row">{{ item.ISO_YEAR }}</td>
+            <td class="table-row">{{ item.ISO_WEEK }}</td>
+            <td class="table-row">{{ item.ILI_CASE }}</td>
+            <td class="table-row">{{ item.ILI_OUTPATIENTS }}</td>
+            <td class="table-row">{{ item.SARI_CASE }}</td>
+            <td class="table-row">{{ item.SARI_INPATIENTS }}</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>
