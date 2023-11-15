@@ -1,4 +1,5 @@
 from ..models import lekert_adatok
+
 current = 0
 onPage = 100
 showndata = lekert_adatok.objects.none()
@@ -6,21 +7,22 @@ generalt = False
 
 
 def init(db, gen=False):
-    global showndata, current, generalt
+    global showndata, current, generalt, onPage
     current = 0
     showndata = db
     generalt = gen
 
+
 def show():
     global current, showndata
-    if(showndata.count()<onPage):
+    if (showndata.count() < onPage):
         return showndata
-    return showndata[current:current+onPage]
+    return showndata[current:current + onPage]
 
 
 def forward():
     global current
-    if ((current+onPage) >= showndata.count()):
+    if ((current + onPage) >= showndata.count()):
         return show()
     else:
         current += onPage
@@ -29,7 +31,7 @@ def forward():
 
 def forwardMore():
     global current
-    if ((current+(onPage * 10)) >= showndata.count()):
+    if ((current + (onPage * 10)) >= showndata.count()):
         return show()
     else:
         current += (onPage * 10)
@@ -38,7 +40,7 @@ def forwardMore():
 
 def back():
     global current
-    if ((current-onPage) < 0):
+    if ((current - onPage) < 0):
         current = 0
         return show()
     else:
@@ -48,7 +50,7 @@ def back():
 
 def backMore():
     global current
-    if ((current-(onPage * 10)) < 0):
+    if ((current - (onPage * 10)) < 0):
         current = 0
         return show()
     else:
@@ -57,7 +59,7 @@ def backMore():
 
 
 def getPage():
-    return int(current/onPage) + 1
+    return int(current / onPage) + 1
 
 
 def getMaxPage():
@@ -66,3 +68,13 @@ def getMaxPage():
 
 def isGen():
     return generalt
+
+
+def setOnPage(ps):
+    global onPage
+    onPage = int(ps)
+    print(onPage)
+
+
+def getOnPage():
+    return onPage

@@ -108,6 +108,32 @@
         <button type="submit" name="forward" class="frissites">></button>
         <button type="submit" name="forwardMore" class="frissites">>></button>
     </form>
+    <form method="post">
+        {% csrf_token %}
+        <label for="setps">Adat/Oldal</label>
+        <select id='setps' name='setps' onchange='{this.form.submit()}'>
+            {% if ps == 25 %}
+            <option value='25' selected>25</option>
+            {% else %}
+            <option value='25'>25</option>
+            {% endif %}
+            {% if ps == 50 %}
+            <option value='50' selected>50</option>
+            {% else %}
+            <option value='50'>50</option>
+            {% endif %}
+            {% if ps == 100 %}
+            <option value='100' selected>100</option>
+            {% else %}
+            <option value='100'>100</option>
+            {% endif %}
+            {% if ps == 250 %}
+            <option value='250' selected>250</option>
+            {% else %}
+            <option value='250'>250</option>
+            {% endif %}
+        </select>
+    </form>
     <table class="table table-hover">
         <thead>
         <tr>
