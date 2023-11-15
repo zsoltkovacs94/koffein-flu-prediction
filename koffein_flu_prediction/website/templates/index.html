@@ -59,7 +59,7 @@
             <h3>Szűrés</h3>
             <label for="WHOREGION">WHOREGION</label>
             <select name="WHOREGION" id="WHOREGION">
-                <option value="Any">Any</option>
+                <option value="Any">Nincs megadva</option>
                 {% for item in region %}
                 {% if szures.0 == item.WHOREGION %}
                 <option value="{{ item.WHOREGION }}" selected>{{ item.WHOREGION }}</option>
@@ -70,7 +70,7 @@
             </select>
             <label for="coarte">COUNTRY_AREA_TERRITORY</label>
             <select name="coarte" id="coarte" value="{{ szures.1 }}">
-                <option value="Any">Any</option>
+                <option value="Any">Nincs megadva</option>
                 {% for item in coarte %}
                 {% if szures.1 == item.COUNTRY_AREA_TERRITORY %}
                 <option value="{{ item.COUNTRY_AREA_TERRITORY }}" selected>{{ item.COUNTRY_AREA_TERRITORY }}</option>
@@ -80,9 +80,9 @@
                 {% endfor %}
             </select>
             <br>
-            <label for="startDate">Starting date</label>
+            <label for="startDate">Kezdő dátum</label>
             <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="{{ szures.2 }}">
-            <label for="endDate">End date</label>
+            <label for="endDate">Utolsó dátum</label>
             <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ szures.3 }}">
             <button type="submit" name="filter" class="frissites">Szűrés</button>
             <button type="submit" name="reset" class="frissites">Visszaállítás</button>
