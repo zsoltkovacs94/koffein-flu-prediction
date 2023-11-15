@@ -46,7 +46,6 @@ def gen(request):
         genmessage = prediction_handler.predict(request.POST.get('gencoarte'))
         database = pager.init(generalt_adatok.objects.all(), gen=True)
     database = pager.show()
-    print(szures)
     return render(request, 'index.html', {'current': database,
                                           'region': generalt_adatok.objects.all().values(
                                               'WHOREGION').distinct().order_by('WHOREGION'),

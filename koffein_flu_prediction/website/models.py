@@ -64,7 +64,4 @@ class generalt_adatok(models.Model):
         f4 = Q(ISO_YEAR=eYear)
         f5 = Q(ISO_WEEK__lte=eWeek)
         f6 = Q(ISO_YEAR__lt=eYear)
-        print(sDate)
-        print(sYear)
-        print(sWeek)
         return data.filter((f1 & f2) | f3).filter((f4 & f5) | f6).order_by("ISO_WEEK").order_by("ISO_YEAR")
