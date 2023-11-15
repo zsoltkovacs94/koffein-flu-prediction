@@ -11,7 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <div class="">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -25,82 +24,47 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'gen' %}">Generált adarok</a></li>
+                    <li><a href="{% url 'gen' %}">Generált adatok</a></li>
                     <li><a href="{% url 'tan' %}">Tanuló adatok</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
-
 <div class="container" style="margin-bottom: 20px;">
-
     <div class=" fejlec col-sm-8">
         <p class="generaltadatok">Koffein flu prediction</p>
     </div>
-    <div class="searc col-sm-4">
-
-    </div>
-
-
 </div>
 <div class="container">
-<div class="doboz">
-    <h4>A web applikáció célja a covid és influenzában lebetegedett emberek számának lekérdezése Az alkalmazás Webes felülettel rendelkezik, amely minden eszközön és böngészőn kiválóan működik.
-        A felületen lehetőségük van a felhasználóknak országokra és régiókra szűrni. A korábbi adatokat egy meglévő adatbázisból kérdezzük le és használjuk fel, ezáltal adatok mindig napra készen.
-        A becsült jövőbeli adatokat ebből az adatbázis adataiból számítjuk ki.</h4>
-
-<h2>Tanuló adatok oldal</h2>
-<p>A tanuló adatok oldal a WHO hivatalos adatait tartalmazza.<br>
-    A megjelenített adatok dinamikusan, mindig az adatbázis jelenlegi állapotát tükrözik.<br>
-    A tanuló adatbázis statikus, az adatokat sem a felhasználó, sem egyéb programok nem változtathatják a feltöltés után csakis lekérdezések végezhetők.<br>
-    A táblázat  fejlécének magyarázata:<br>
-    <ul>
-    <li>WHOREGION - WHO régió neve</li>
-    <li>COUNTRY_AREA_TERRITORY - Az adott ország neve</li>
-    <li>ISO_YEAR - A mérés éve</li>
-    <li>ISO_WEEK - Az év hete, amikor a mérés történt</li>
-    <li>ILI_CASE - Influenzagyanús betegek száma</li>
-    <li>ILI_OUTPATIENTS - Influenzás járóbetegek száma</li>
-    <li>SARI_CASE - Súlyos léguti megbetegedésgyanús betegek száma</li>
-    <li>SARI_INPATIENTS - Súlyos léguti megbetegedéses fekvőbetegek száma</li>
-
-</ul>
-<h2>Generált adatok oldal</h2>
-    <p>A megjelenített adatok dinamukisak, mindig az adatbázis jelenlegi állapotát tükrözik.<br>
-        Ezen a lapon megtekinthetők a korábban generált adatok.<br>
-        Új adatok generáltatása esetén az adatok bekerülnek a generált adatok adatbázisába, majd megjelenítésre kerülnek.<br>
-        <h3>A tanulás menete</h3>
-    <p>A modell betanítása úgy zajlik, hogy az egész tanuló adatbázison tanul, majd a tanuló adatbázis felét inputul kapva meg kell határoznia a tanuló adatbázis másik feléhez az ILI_CASE, ILI_OUTPATIENTS, SARI_CASE és SARI_INPATIENTS adatoszlopok. Ha ennek a hibamértéke 10% alatti, akkor sikeres a tanítás.<br>
- A prediktáló program egy python program, ami a tanuló adatbázis megfelelő részein végez tanulást és predikciót.<br>
-        A prediktáló program egy tanuló adatbázis lekérdezéssel kap tanuló adatot, majd a predikció után a generált adatokat feltölti a prediktált adatok adatbázisába.<br>
-        A prediktáló program a dátum, az ILI gyanús esetek száma, az ILI járóbetegek száma, a SARI gyanús esetek száma és a SARI fekvőbetegek száma alapján tanul és megadott jövőbeli időpontokra ILI gyanús esetek, ILI járóbetegek, SARI gyanús esetek és SARI fekvőbetegek számát generál.
-   Tanulás menete
-
-    </p>
-
-
-
-
-
-
-
-    <p>A táblázat fejlécének magyarázata:
-       <ul>
-    <li>WHOREGION - WHO régió neve</li>
-    <li>COUNTRY_AREA_TERRITORY - Az adott ország neve</li>
-    <li>ISO_YEAR - A mérés éve</li>
-    <li>ISO_WEEK - Az év hete, amikor a mérés történt</li>
-    <li>ILI_CASE - Influenzagyanús betegek száma</li>
-    <li>ILI_OUTPATIENTS - Influenzás járóbetegek száma</li>
-    <li>SARI_CASE - Súlyos léguti megbetegedésgyanús betegek száma</li>
-    <li>SARI_INPATIENTS - Súlyos léguti megbetegedéses fekvőbetegek száma</li>
-
-</ul>
-
-</p>
-</div>
+    <div class="doboz">
+        <h4>A web applikáció célja az influenzás betegek számának lekérdezése. A felületen lehetőségük van a
+            felhasználóknak országokra és régiókra szűrni. A korábbi adatokat egy a WHO korábbi adataiból álló
+            adatbázisban tároljuk. A becsült jövőbeli adatokat ennek az adatbázisnak az adataiból számítjuk ki.
+        </h4>
+        <h2>Tanuló adatok oldal</h2>
+        <p>A tanuló adatok oldal a WHO hivatalos adatait tartalmazza.<br>
+            A megjelenített adatok dinamikusak, mindig az adatbázis jelenlegi állapotát tükrözik.<br>
+            A tanuló adatbázis statikus, az adatokat sem a felhasználó, sem egyéb programok nem változtathatják a
+            feltöltés után csakis lekérdezések végezhetők.<br>
+            A táblázat fejlécének magyarázata:<br>
+        <ul>
+            <li>WHOREGION - WHO régió neve</li>
+            <li>COUNTRY_AREA_TERRITORY - Az adott ország neve</li>
+            <li>ISO_YEAR - A mérés éve</li>
+            <li>ISO_WEEK - Az év hete, amikor a mérés történt</li>
+            <li>ILI_CASE - Influenzagyanús betegek száma</li>
+            <li>ILI_OUTPATIENTS - Influenzás járóbetegek száma</li>
+            <li>SARI_CASE - Súlyos léguti megbetegedésgyanús betegek száma</li>
+            <li>SARI_INPATIENTS - Súlyos léguti megbetegedéses fekvőbetegek száma</li>
+        </ul>
+        <h2>Generált adatok oldal</h2>
+        <p>A megjelenített adatok dinamukisak, mindig az adatbázis jelenlegi állapotát tükrözik.<br>
+            Ezen a lapon megtekinthetők a korábban generált adatok.<br>
+            Új adatok generáltatása esetén az adatok bekerülnek a generált adatok adatbázisába, majd megjelenítésre
+            kerülnek.<br>
+        </p>
     </div>
-
+</div>
 </body>
 </html>

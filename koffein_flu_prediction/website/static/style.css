@@ -1,4 +1,10 @@
-
+select{
+    max-width: 100%;
+    text-overflow: ellipsis
+}
+#feher{
+    color: white;
+}
 .doboz{
 
     padding: 20px 10px 25px 10px;

@@ -51,25 +51,33 @@
         <!--Példa szűrés felület-->
         <div class="doboz">
             <h3>Szűrés</h3>
-            <label for="WHOREGION">WHO Régioó</label>
+            <label for="WHOREGION">WHOREGION</label>
             <select name="WHOREGION" id="WHOREGION">
-                <option value="Any">Bármi</option>
+                <option value="Any">Nincs megadva</option>
                 {% for item in region %}
+                {% if szures.0 == item.WHOREGION %}
+                <option value="{{ item.WHOREGION }}" selected>{{ item.WHOREGION }}</option>
+                {% else %}
                 <option value="{{ item.WHOREGION }}">{{ item.WHOREGION }}</option>
+                {% endif %}
                 {% endfor %}
             </select>
-            <label for="coarte">Ország területei</label>
+            <label for="coarte">COUNTRY_AREA_TERRITORY</label>
             <select name="coarte" id="coarte">
-                <option value="Any">Any</option>
+                <option value="Any">Nincs megadva</option>
                 {% for item in coarte %}
+                {% if szures.1 == item.COUNTRY_AREA_TERRITORY %}
+                <option value="{{ item.COUNTRY_AREA_TERRITORY }}" selected>{{ item.COUNTRY_AREA_TERRITORY }}</option>
+                {% else %}
                 <option value="{{ item.COUNTRY_AREA_TERRITORY }}">{{ item.COUNTRY_AREA_TERRITORY }}</option>
+                {% endif %}
                 {% endfor %}
             </select>
             <br>
             <label for="startDate">Kezdő dátum</label>
-            <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="1996-01-01">
+        <input type="date" name="startDate" id="startDate" min="1996-01-01" max="{{ date }}" value="{{ szures.2 }}">
             <label for="endDate">Végső dátum</label>
-            <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ date }}">
+        <input type="date" name="endDate" id="endDate" min="1996-01-01" max="{{ date }}" value="{{ szures.3 }}">
             <button type="submit" name="filter" class="frissites">Szűrés</button>
             <button type="submit" name="reset" class="frissites">Visszaállítás</button>
         </div>
@@ -128,7 +136,8 @@
         </select>
     </form>
     </div>
-
+    <div class="clearfix"></div>
+    <div class="table-responsive">
     <table class="table table-hover">
         <thead>
         <tr class="table-head">
@@ -143,6 +152,11 @@
         </tr>
         </thead>
         <tbody>
+        {% if count == 0 %}
+        <tr class="table-rows">
+            <td id="feher" class="table-row" colspan="8" align="center" >Nincs ilyen adat</td>
+        </tr>
+        {% endif %}
         {% for item in current %}
         <tr class="table-rows">
             <td class="table-row">{{ item.WHOREGION }}</td>
@@ -158,6 +172,7 @@
 
         </tbody>
     </table>
+        </div>
 </div>
 </div>
 </body>
