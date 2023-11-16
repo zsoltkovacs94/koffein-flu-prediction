@@ -163,6 +163,7 @@ display: flex;
 
 
 .message{
+font-size: 1em;
 	color:#16a085;
 }
 .message:after{
@@ -175,7 +176,6 @@ display: flex;
 .message:after, .message:before {
 
   color: #16a085;
-  font-size: 20px;
   -webkit-animation-name: opacity;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -185,7 +185,7 @@ display: flex;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
-          margin:0 50px;
+          margin:0 5%;
 }
 
 @-webkit-keyframes opacity {
