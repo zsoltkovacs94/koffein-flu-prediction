@@ -48,7 +48,7 @@ cd .\koffein_flu_prediction\
 Majd futtassuk a django oldalt az alábbi paranccsal:
 
 ```
-python manage.py runserver 
+python manage.py runserver --insecure
 ```
 
 A terminálban látható "Starting development server at..." kezdetű sorban található címen érhetjük el az oldalt.
