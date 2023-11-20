@@ -25,16 +25,16 @@ Válasszuk a virtual environmentet, fenti rádiógombok közül válasszuk a new
 Nyissuk meg a pycharm terminált (Alt+F12), majd adjuk ki az alábbi parancsot, a figyelmeztetéseket hagyjuk figyelmen kívül:
 
 ```
-pip install django
+pip install django==4.2.7
 ```
 ```
-pip install numpy
+pip install numpy==1.26.1
 ```
 ```
-pip install pandas
+pip install pandas==1.2.1
 ```
 ```
-pip install tensorflow
+pip install tensorflow==2.14.0
 ```
 
 ### Django oldal futtatása
