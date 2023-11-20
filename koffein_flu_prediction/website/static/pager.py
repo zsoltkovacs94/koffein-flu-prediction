@@ -74,6 +74,8 @@ def setOnPage(ps):
     if not ps.isnumeric():
         return
     ps = int(ps)
+    if ps not in [25, 50, 100, 250]:
+        ps = 25
     if ps <= 0:
         return
     global onPage
