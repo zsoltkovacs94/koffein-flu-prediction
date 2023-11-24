@@ -6,7 +6,7 @@
 
 HTML5, CSS3, Bootstrap
 
-Django Backend
+Django, waitress, whitenoise backend
 
 ![Főoldal](img/index.png)
 

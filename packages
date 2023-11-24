@@ -1,0 +1,6 @@
+django==4.2.7
+numpy==1.26.1
+pandas==1.2.1
+tensorflow==2.14.0
+waitress==2.1.2
+whitenoise==6.6.0
